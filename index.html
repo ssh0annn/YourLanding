@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚀 YourLanding - Landing Pages Profesionales</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables - TEMÁTICA COHETE/ESPACIAL */
+        /* Variables - ADAPTADAS AL ESTILO MINIMALISTA */
         :root {
-            --primary-color: #FF6B6B; /* Coral Vibrante (Fuego/Impulso) */
-            --secondary-color: #1D2B53; /* Azul Profundo (Espacio) */
-            --text-color: #333333;
-            --background-light: #F4F4F9; /* Gris Claro (Base) */
+            --primary-color: #FF6B6B; /* Coral Vibrante (Acento/Fuego) */
+            --secondary-color: #1D2B53; /* Azul Profundo (Espacio/Texto Principal) */
+            --background-page: #EAE6E1; /* Gris de la imagen de referencia */
+            --background-light: #F4F4F9; 
             --white: #ffffff;
-            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --text-dark: #333333;
+            --text-light: #777777;
+            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
         /* Base y Reset */
@@ -26,254 +29,295 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
+            color: var(--text-dark);
             line-height: 1.6;
-            background-color: var(--white);
+            background-color: var(--background-page); /* Fondo principal gris */
+            padding-top: 40px; /* Espacio superior */
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px 0;
         }
 
         h1, h2, h3 {
             margin-bottom: 1rem;
-            line-height: 1.2;
+            line-height: 1.1;
+            font-weight: 700;
         }
 
         p {
             margin-bottom: 1rem;
+            font-weight: 400;
         }
 
         /* --- Componentes --- */
 
-        /* Botones */
+        /* Botones y Etiquetas */
         .btn {
             display: inline-block;
             padding: 12px 30px; 
-            border-radius: 8px; 
+            border-radius: 4px; /* Bordes menos redondeados */
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
+            border: 1px solid var(--secondary-color);
             cursor: pointer;
             text-align: center;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
+            background-color: var(--secondary-color);
             color: var(--white);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: #e85a5a;
-            transform: translateY(-2px);
+            background-color: var(--text-dark);
+            border-color: var(--text-dark);
+            transform: translateY(-1px);
         }
 
-        .btn-secondary {
+        /* Botones de "Etiqueta" (Estilo Modern Icons/New Silhouettes) */
+        .btn-tag {
+            background: none;
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin: 0 5px;
+            text-transform: none;
+        }
+        .btn-tag:hover {
             background-color: var(--secondary-color);
             color: var(--white);
-            box-shadow: 0 5px 15px rgba(29, 43, 83, 0.3); /* Sombra de color espacial */
-        }
-
-        .btn-secondary:hover {
-            background-color: #111a33;
-            transform: translateY(-2px);
-        }
-
-        .btn-header {
-            padding: 8px 20px;
-            background-color: var(--primary-color);
-            border-radius: 50px; 
-        }
-        
-        .btn-header:hover {
-            background-color: #e85a5a;
+            border-color: var(--secondary-color);
         }
 
         /* --- Layout --- */
 
         /* Header y Navegación */
-        .header {
-            background-color: var(--white);
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 10px 0 30px 0;
+            max-width: 950px; /* Centralizar más el header */
         }
-
-        .logo {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            font-weight: 800; /* Más audaz */
-        }
-
-        .nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav a {
+        
+        /* Enlaces del Header a la izquierda (Home, Men, Women...) */
+        .header-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            margin-right: 15px;
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 300;
         }
 
-        .nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: var(--background-light);
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 3rem; 
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        .hero h2 strong {
-            color: var(--primary-color);
-        }
-
-        .hero p {
+        /* Logo Central */
+        .logo {
+            font-family: 'Roboto Mono', monospace; /* Tipo de letra más audaz */
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
-            color: #555;
-        }
-
-        /* Servicios Section */
-        .servicios {
-            padding: 80px 0;
+            color: var(--secondary-color);
+            font-weight: 700;
+            letter-spacing: 2px;
             text-align: center;
-            background-color: var(--white);
+            flex-grow: 1; /* Para centrarlo */
+        }
+        .logo span {
+            font-size: 0.8em; /* Ajuste para el emoji */
         }
 
-        .servicios h3 {
-            font-size: 2.5rem;
-            margin-bottom: 3.5rem;
+        /* Iconos de la derecha (Search, Account, Cart) */
+        .header-icons {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .header-icons span {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        /* --- SECCIÓN HERO (La parte principal) --- */
+        .hero {
+            padding: 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem; 
+            font-family: 'Roboto Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 10px; /* Estilo de la referencia */
+            margin: 50px auto 30px auto;
+            max-width: 900px;
+            line-height: 1.2;
             color: var(--secondary-color);
         }
+        
+        .hero-title strong {
+             color: var(--primary-color);
+        }
 
-        .servicios h3 strong {
+        /* Contenedor principal de la imagen/texto */
+        .main-collection-box {
+            background-color: var(--white);
+            border-radius: 30px; /* Bordes muy redondeados */
+            box-shadow: var(--shadow-subtle);
+            padding: 40px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden; /* Necesario para la imagen */
+            max-width: 100%;
+            aspect-ratio: 16 / 9; /* Proporción de la imagen de ejemplo */
+        }
+
+        .image-placeholder {
+            /* Simular la imagen de fondo con los colores de tu tema */
+            background-color: var(--secondary-color);
+            background-image: linear-gradient(135deg, #4b5883 0%, var(--secondary-color) 40%, var(--primary-color) 100%);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 40%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            text-align: left;
+            z-index: 10;
+        }
+        
+        .text-overlay p {
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .text-overlay a {
             color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* --- SECCIONES INFERIORES --- */
+
+        .section-secondary {
+            background-color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 30px;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .section-secondary h3 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
         }
 
         .servicios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 0 40px;
         }
 
         .servicio-card {
-            background: var(--background-light); 
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: none; 
-            border: 1px solid #e0e0e0;
-            transition: transform 0.3s ease, border-color 0.3s;
-            text-align: left;
+            background: var(--background-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: none;
+            text-align: center;
+            border-left: 3px solid var(--primary-color); /* Toque de acento */
         }
-
-        .servicio-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color); 
-        }
-
+        
         .servicio-card h4 {
             color: var(--secondary-color);
-            font-size: 1.35rem;
+            font-size: 1.1rem;
             margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .servicio-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
         }
 
-        /* Testimonios Section */
+        /* Testimonios */
         .testimonios {
-            background-color: var(--background-light);
-            padding: 80px 0;
-            text-align: center;
+            /* Usaremos el mismo estilo de contenedor secundario */
+            padding: 60px 0;
         }
-
-        .testimonios h3 {
-            font-size: 2.5rem;
-            margin-bottom: 3.5rem;
-            color: var(--secondary-color);
-        }
-
+        
         .testimonio-card {
-            background: var(--white);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
-            margin-bottom: 25px;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
+            background: var(--background-light);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 20px auto;
+            box-shadow: none;
+            border: 1px solid #ddd;
         }
-
+        
         .testimonio-card p {
             font-style: italic;
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            color: #555;
+            font-size: 1rem;
+            color: var(--secondary-color);
         }
 
         .testimonio-card span {
-            display: block;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--primary-color);
-            text-transform: uppercase;
             font-size: 0.9rem;
+            display: block;
+            margin-top: 10px;
         }
 
-        /* Contacto Section */
+        /* Contacto */
         .contacto {
-            padding: 80px 0;
-            text-align: center;
-            background-color: var(--white);
-        }
-
-        .contacto h3 {
-            font-size: 2.5rem;
-            margin-bottom: 2.5rem;
-            color: var(--secondary-color);
-        }
-
-        .contacto h3 strong {
-            color: var(--primary-color);
+            padding-bottom: 80px;
         }
 
         .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
             background: var(--background-light);
-            border-radius: 12px;
-            box-shadow: var(--shadow-light);
+            padding: 50px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 30px auto;
+            box-shadow: var(--shadow-subtle);
         }
 
         .contact-content p {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
         }
+
 
         /* Footer */
         .footer {
@@ -281,49 +325,66 @@
             color: var(--white);
             text-align: center;
             padding: 25px 0;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            position: static; 
+            width: 100%;
+            margin-top: 40px;
         }
 
-        /* --- Responsive (Móviles) --- */
-        @media (max-width: 768px) {
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 850px) {
+            .hero-title {
+                font-size: 2.5rem;
+                letter-spacing: 5px;
+                margin-top: 20px;
+            }
+            .main-collection-box {
+                aspect-ratio: unset;
+                height: 50vh;
+            }
+        }
+        @media (max-width: 600px) {
+            /* Header */
             .header .container {
                 flex-direction: column;
-                text-align: center;
+                padding: 10px 0;
             }
-
-            .nav {
-                margin-top: 15px;
+            .header-links, .header-icons {
+                display: none;
             }
-
-            .nav ul {
-                justify-content: center;
-                gap: 15px;
+            .logo {
+                font-size: 1.5rem;
+                padding: 10px 0;
             }
             
-            .nav a {
-                font-size: 0.9rem;
+            /* Hero */
+            .hero-title {
+                font-size: 1.8rem;
+                letter-spacing: 3px;
             }
-            
-            .btn-header {
-                margin-top: 15px;
+            .text-overlay {
+                width: 80%; /* Ocupa más en móvil */
+                left: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .text-overlay p {
+                font-size: 0.8rem;
+            }
+            .text-overlay a {
+                font-size: 0.75rem;
             }
 
-            .hero {
-                padding: 80px 0;
-            }
-
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-
+            /* Servicios */
             .servicios-grid {
-                grid-template-columns: 1fr;
+                padding: 0 20px;
             }
-
-            .servicio-card {
-                padding: 30px;
+            .section-secondary h3 {
+                 font-size: 1.5rem;
+                 letter-spacing: 3px;
             }
-
+            
             .contact-content {
                 padding: 30px;
             }
@@ -334,75 +395,97 @@
 
     <header class="header">
         <div class="container">
-            <h1 class="logo">🚀 YourLanding</h1>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#contacto" class="btn btn-header">¡Lanzar Proyecto!</a></li>
-                </ul>
-            </nav>
+            <div class="header-links">
+                <a href="#hero">(Home)</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#testimonios">Clientes</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <h1 class="logo">🚀 <span>YOUR</span>LANDING</h1>
+            <div class="header-icons">
+                <span>🔍</span>
+                <span>👤</span>
+                <span>🛍️</span>
+            </div>
         </div>
     </header>
 
     <main>
         <section id="hero" class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <h2>Impulsa tu Negocio: **Lanza una Landing Page** que Convierta.</h2>
-                    <p>En YourLanding, diseñamos y desarrollamos páginas de aterrizaje de **alto octanaje**, enfocadas en empresas y pequeños negocios que buscan resultados a la velocidad de la luz.</p>
-                    <a href="#contacto" class="btn btn-primary">¡Quiero mi Lanzamiento!</a>
+                <h2 class="hero-title">
+                    <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
+                    LANDING PAGE CON **IMPULSO**
+                </h2>
+                
+                <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+                    <a href="#servicios" class="btn btn-tag">Páginas Ligeras</a>
+                    <a href="#servicios" class="btn btn-tag">Máxima Conversión</a>
                 </div>
-                </div>
+
+                <div class="main-collection-box">
+                    <div class="image-placeholder">
+                        </div>
+                    
+                    <div class="text-overlay">
+                        <p>
+                            En YourLanding, diseñamos con la intención de **lanzar** productos digitales con líneas audaces y arquitectura sólida. Cada proyecto cuenta una historia de **velocidad y fiabilidad**, diseñado para quienes buscan moverse sin esfuerzo entre la tradición del buen diseño y la innovación en resultados.
+                        </p>
+                        <a href="#servicios">Explora la Arquitectura de Conversión ↗</a>
+                    </div>
+                    </div>
+            </div>
         </section>
 
-        <section id="servicios" class="servicios">
+        <section id="servicios" class="section-secondary">
             <div class="container">
-                <h3>Nuestros Servicios **Clave** para el Despegue</h3>
+                <h3>Servicios de **Alto Octanaje**</h3>
                 <div class="servicios-grid">
                     <div class="servicio-card">
-                        <h4>Diseño Ultrarrápido</h4>
-                        <p>Diseños **únicos** y optimizados para la máxima velocidad de carga (clave para el SEO).</p>
+                        <h4>DISEÑO A LA MEDIDA</h4>
+                        <p>Planteamos una arquitectura de landing page única, no una plantilla. Tu cohete será el único en el cielo.</p>
                     </div>
                     <div class="servicio-card">
-                        <h4>Optimización de Propulsión (SEO)</h4>
-                        <p>Preparamos tu página para ser encontrada y rankear alto en las búsquedas.</p>
+                        <h4>OPTIMIZACIÓN SEO</h4>
+                        <p>Configuración esencial para que tu página aterrice justo donde están tus clientes en los buscadores.</p>
                     </div>
                     <div class="servicio-card">
-                        <h4>Respuesta Móvil (Multiplataforma)</h4>
-                        <p>Tu landing se verá **perfecta** en cualquier dispositivo, lista para el **despegue**.</p>
+                        <h4>RESPONSIVE PERFECTO</h4>
+                        <p>Diseño fluido que se adapta a cualquier órbita (móvil, tablet, desktop). Siempre se verá impecable.</p>
                     </div>
                     <div class="servicio-card">
-                        <h4>Integración de Leads</h4>
-                        <p>Conexión simple para capturar leads y poner tus conversiones en órbita.</p>
+                        <h4>INTEGRACIÓN DE LEADS</h4>
+                        <p>Conexión simple para capturar datos y poner tus conversiones en órbita rápidamente.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="testimonios" class="testimonios">
+        <section id="testimonios" class="section-secondary testimonios">
             <div class="container">
-                <h3>Clientes que ya están en **Órbita**</h3>
+                <h3>Voces desde la **Estación Espacial**</h3>
                 <div class="testimonio-card">
-                    <p>"El equipo de YourLanding superó mis expectativas. La página es hermosa y mis conversiones se duplicaron en un mes."</p>
-                    <span>— Ana P., Dueña de Boutique Online</span>
+                    <p>"El diseño es espectacularmente limpio y moderno. Lograron capturar mi visión con una eficiencia asombrosa."</p>
+                    <span>— Ana P., Boutique de Diseño</span>
                 </div>
                 <div class="testimonio-card">
-                    <p>"Un servicio rápido, profesional y enfocado 100% en el resultado. ¡Mi negocio despegó gracias a ellos!"</p>
-                    <span>— Carlos M., Consultor de Marketing</span>
+                    <p>"Veloces, profesionales y la conversión se disparó. Este equipo sabe cómo hacer despegar un proyecto."</p>
+                    <span>— Carlos M., Consultor de Tecnología</span>
                 </div>
             </div>
         </section>
 
         <section id="contacto" class="contacto">
             <div class="container">
-                <h3>**Prepárate** para el Lanzamiento</h3>
+                <h3>**Inicia** el Conteo Final</h3>
                 <div class="contact-content">
-                    <p>¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo y envíanos un email para solicitar tu presupuesto. Los datos clave ya estarán listos.</p>
+                    <p>
+                        ¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo. Se abrirá tu correo con nuestra plantilla de solicitud lista para que la rellenes.
+                    </p>
                     
                     <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
-                       class="btn btn-secondary">
-                        Solicitar Presupuesto por Email
+                       class="btn btn-primary">
+                        Solicitar Presupuesto (Email)
                     </a>
                 </div>
             </div>
@@ -411,7 +494,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 YourLanding. Todos los derechos reservados. | 🚀 ¡Enviando proyectos al espacio!</p>
+            <p>🚀 YourLanding. All rights reserved. | Diseñado con velocidad y precisión.</p>
         </div>
     </footer>
 </body>
