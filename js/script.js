@@ -84,3 +84,5 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
 
     // ... (El resto del contenido de tu script sigue aquí) ...
+
+    

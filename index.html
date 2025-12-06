@@ -9,10 +9,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
+        <script>
+    // BLOQUEO INMEDIATO DEL SCROLL AUTOMÁTICO
+    if (window.location.hash) {
+        // Anula el hash inmediatamente, previniendo el scroll nativo.
+        window.location.hash = "";
+        
+        // Limpia la URL sin recargar y fuerza el scroll al tope como respaldo.
+        window.onload = function() {
+            window.scrollTo(0, 0);
+            if (history.replaceState) {
+                history.replaceState(null, document.title, window.location.pathname + window.location.search);
+            }
+        };
+    }
+</script>
 </head>
 <body>
 
     <header class="header">
+  
         <div class="container">
             <h1 class="logo">🚀 YOURLANDING</h1>
             
