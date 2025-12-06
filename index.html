@@ -1,140 +1,1025 @@
-<main>
-    <section id="hero" class="hero">
-        <div class="hero-content-wrapper">
-            
-            <h2 class="hero-title">
-                <span>Lanza Tu </span><br>
-                LANDING PAGE CON <strong>IMPULSO</strong>
-            </h2>
-            
-            <p class="hero-subtitle">
-                Diseño audaz y arquitectura sólida. ¡Velocidad y fiabilidad en cada lanzamiento!
-            </p>
-            
-            <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" class="btn btn-hero">¡Iniciar Despegue Ahora!</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 YourLanding - Landing Pages Profesionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #FF6B6B; /* Coral Vibrante (Acento/Fuego) */
+            --secondary-color: #1D2B53; /* Azul Profundo (Espacio/Texto Principal) */
+            --background-page: #EAE6E1;
+            --hero-bg-dark: #1F2E49; /* Fondo de la Hero Section */
+            --background-light: #F4F4F9; 
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --section-padding-y: 60px;
+        }
 
-            <div class="rocket-container">
-                
-                <div class="rocket-flame-smoke">
-                    <div class="smoke-puff-base"></div>
-                    <div class="flame"></div>
-                </div>
-                
-                <div class="rocket-shape">
-                    <div class="rocket-cone"></div>
-                    <div class="rocket-body">
-                        <div class="rocket-window"></div>
-                    </div>
-                    <div class="rocket-fin-left"></div>
-                    <div class="rocket-fin-right"></div>
-                </div>
-                
-            </div>
-            </div>
-    </section>
+        /* Base y Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <section id="servicios" class="section-secondary">
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--background-page);
+            padding-top: 0; 
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        /* --- Componentes --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px; 
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: 1px solid var(--secondary-color);
+            cursor: pointer;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        /* Botón general - Ahora usa primary-color */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: #e85a5a;
+            border-color: #e85a5a;
+            transform: translateY(-1px);
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        
+        .header {
+            background-color: var(--background-page);
+            padding-top: 40px; 
+        }
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0; 
+        }
+
+        .logo {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            letter-spacing: 2px;
+            z-index: 20;
+        }
+        .logo span {
+            font-size: 0.8em;
+        }
+
+        nav {
+            margin-left: auto; 
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            z-index: 10;
+        }
+        .nav-menu a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            z-index: 20;
+            color: var(--secondary-color);
+            font-size: 24px;
+        }
+        
+        /* --- SECCIÓN HERO (Cohete) --- */
+        .hero {
+            background-color: var(--hero-bg-dark);
+            padding: 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 0; 
+        }
+        
+        .hero-content-wrapper {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 0 50px 0; 
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.2rem; 
+            font-family: 'Roboto Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin: 0 auto 20px auto;
+            max-width: 700px;
+            line-height: 1.1;
+            color: var(--white);
+        }
+        
+        .hero-title span { 
+             color: var(--primary-color);
+             font-weight: 300;
+        }
+        .hero-title strong {
+            font-weight: 700; 
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+        
+        .hero .btn-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        .hero .btn-hero:hover {
+            background-color: #e85a5a;
+            border-color: #e85a5a;
+        }
+
+        /* --- Estructura y Estilos del Cohete (Se mantiene) --- */
+        .rocket-container {
+            position: relative;
+            width: 100%;
+            height: 400px; 
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+        }
+        .rocket-shape {
+            position: absolute;
+            bottom: 0; 
+            width: 150px; 
+            height: 350px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+        .rocket-cone {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid var(--primary-color);
+            margin-bottom: -1px;
+        }
+        .rocket-body {
+            width: 80px;
+            height: 200px;
+            background-color: var(--white);
+            border-radius: 5px;
+            position: relative;
+        }
+        .rocket-window {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .rocket-fin-left, .rocket-fin-right {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 50px solid transparent;
+            bottom: 0;
+        }
+        .rocket-fin-left {
+            border-right: 70px solid var(--primary-color);
+            left: -70px;
+        }
+        .rocket-fin-right {
+            border-left: 70px solid var(--primary-color);
+            right: -70px;
+        }
+        .rocket-flame-smoke {
+            position: absolute;
+            bottom: -50px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            z-index: 5;
+        }
+        .flame {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50% 50% 10% 10%;
+            box-shadow: 0 0 15px var(--primary-color);
+            transform: scaleY(0.8);
+            animation: pulse-flame 0.4s infinite alternate;
+        }
+        .smoke-puff-base {
+            width: 100%;
+            height: 200px;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0.1;
+            box-shadow: 0 0 50px 30px var(--white);
+            animation: pulse-smoke 2s infinite alternate;
+            margin-top: -30px;
+        }
+        @keyframes pulse-flame {
+            0% { transform: scale(1, 0.8); opacity: 1; }
+            100% { transform: scale(1.1, 1.2); opacity: 0.9; }
+        }
+        @keyframes pulse-smoke {
+            0% { transform: scale(0.95); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.2; }
+        }
+        
+        /* --- ESTILOS GENERALES Y TEMÁTICOS DE SECCIONES --- */
+        .section-secondary {
+            background-color: var(--white);
+            padding: var(--section-padding-y) 0;
+            text-align: center;
+            border-radius: 30px;
+            margin: 40px auto;
+            max-width: 1100px;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .section-secondary h3 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- SECCIÓN DE SERVICIOS: ETAPAS DE LANZAMIENTO (TABS) (Se mantiene) --- */
+        .launch-stages {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .stage-nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .stage-nav::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: var(--text-light);
+            z-index: 1;
+        }
+        .stage-step {
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+        }
+        .stage-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--background-page);
+            border: 3px solid var(--text-light);
+            color: var(--text-dark);
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 5px var(--white);
+            animation: none;
+        }
+        .stage-step.active .stage-icon {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 0 0 5px var(--white), 0 0 10px var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        /* Contenido de la Card (Modernizado) */
+        .stage-content {
+            background: linear-gradient(45deg, var(--hero-bg-dark), var(--secondary-color)); 
+            color: var(--white);
+            padding: 40px; 
+            border-radius: 15px;
+            text-align: left;
+            margin-top: 20px;
+            min-height: 250px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stage-content h4 {
+            color: var(--primary-color);
+            font-size: 1.8rem; 
+            margin-bottom: 15px; 
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+        .stage-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px; 
+        }
+
+        /* --- Estilos para listas dentro de STAGE-CONTENT (Se mantienen) --- */
+        .stage-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .stage-content li {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--white);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .stage-content li i {
+            color: var(--primary-color); 
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        /* ------------------------------------------------------------- */
+
+
+        .content-item { display: none; }
+        .content-item.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- NUEVOS ESTILOS PARA LA SECCIÓN DE BENEFICIOS (Características) --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .benefit-card {
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-subtle);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-card i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .benefit-card h4 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .benefit-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* --- NUEVOS ESTILOS PARA FAQ (Sección SEO/Objeciones) --- */
+        .faq-list {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            text-align: left;
+        }
+        
+        .faq-item {
+            border: 1px solid var(--text-light);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background-color: var(--background-light);
+        }
+
+        .faq-question {
+            background-color: var(--white);
+            padding: 18px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .faq-question:hover {
+            background-color: var(--background-page);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            padding: 0 25px;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        
+        .faq-answer.open {
+            max-height: 200px; /* Suficiente para el contenido */
+            padding: 15px 25px 20px 25px;
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+
+        /* --- SECCIÓN CONTACTO (EL CONTEO FINAL) (Se mantiene) --- */
+        .contacto {
+            background-color: var(--secondary-color); 
+            padding: 80px 0; 
+            text-align: center;
+            color: var(--white);
+        }
+
+        .contacto h3 {
+            color: var(--primary-color); 
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .contact-content {
+            background: none; 
+            padding: 0;
+            max-width: 700px;
+            margin: 30px auto;
+            box-shadow: none;
+        }
+        
+        .contact-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+        
+        .contact-content .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* --- FOOTER (Se mantiene) --- */
+        .footer {
+            background-color: var(--hero-bg-dark); 
+            color: rgba(255, 255, 255, 0.6);
+            padding: 40px 0; 
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color); 
+            transform: scale(1.1);
+        }
+        
+        .footer-logo {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+
+        /* --- RESPONSIVE / AJUSTES MÓVILES --- */
+        @media (max-width: 900px) {
+            
+            .menu-toggle { display: block; }
+            .nav-menu { 
+                display: none; 
+                position: fixed; 
+                top: 0;
+                right: 0; 
+                width: 70%; 
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--secondary-color); 
+                padding-top: 80px;
+                padding-bottom: 20px;
+                box-shadow: -4px 0 8px rgba(0,0,0,0.4);
+                z-index: 15;
+                transform: translateX(100%);
+                transition: transform 0.4s ease-out;
+            }
+
+            .nav-menu.open {
+                display: flex;
+                flex-direction: column;
+                transform: translateX(0);
+            }
+            
+            .header .container { padding: 10px 0; position: relative; }
+            
+            /* Responsive de Etapas */
+            .stage-nav {
+                flex-direction: column;
+                padding: 0;
+            }
+            .stage-nav::before {
+                top: 50px;
+                bottom: 50px;
+                left: 25px;
+                right: unset;
+                width: 2px;
+                height: calc(100% - 100px);
+            }
+            .stage-step {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                text-align: left;
+                padding: 15px 0;
+                margin-left: -15px; 
+            }
+            .stage-icon {
+                margin: 0 20px 0 0;
+                flex-shrink: 0;
+            }
+            .stage-title {
+                text-align: left;
+            }
+            
+            /* Ajuste de Beneficios Móvil */
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Ajustes en Contacto Móvil */
+            .contacto h3 {
+                font-size: 2rem;
+            }
+            .contact-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
         <div class="container">
-            <h3>Etapas de Lanzamiento 🚀</h3>
+            <h1 class="logo">🚀 <span>YOUR</span>LANDING</h1>
             
-            <div class="launch-stages">
+            <nav>
+                <div class="menu-toggle" id="menuToggle">☰</div>
                 
-                <div class="stage-nav">
-                    
-                    <div class="stage-step active" data-target="stage1">
-                        <div class="stage-icon">1</div>
-                        <div class="stage-title">Briefing Orbital</div>
-                    </div>
-
-                    <div class="stage-step" data-target="stage2">
-                        <div class="stage-icon">2</div>
-                        <div class="stage-title">Diseño de Propulsión</div>
-                    </div>
-                    
-                    <div class="stage-step" data-target="stage3">
-                        <div class="stage-icon">3</div>
-                        <div class="stage-title">Integración de Carga</div>
-                    </div>
-                    
-                    <div class="stage-step" data-target="stage4">
-                        <div class="stage-icon">4</div>
-                        <div class="stage-title">Activación y Vuelo</div>
-                    </div>
-
-                </div>
-                
-                <div class="stage-content">
-                    
-                    <div class="content-item active" id="stage1">
-                        <h4>BRIEFING ORBITAL (Diseño a la Medida)</h4>
-                        <p>
-                            Es el inicio de la misión. Analizamos tus objetivos, público meta y el mensaje clave que debe transmitir tu página.
-                        </p>
-                        <ul>
-                            <li><i class="fas fa-lightbulb"></i> **Definición Estratégica:** Claridad en el objetivo de conversión.</li>
-                            <li><i class="fas fa-sitemap"></i> **Arquitectura de Conversión:** Mapeo del flujo de usuario y secciones clave.</li>
-                            <li><i class="fas fa-crosshairs"></i> **Análisis de la Competencia:** Asegurar que tu mensaje destaque en órbita.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="content-item" id="stage2">
-                        <h4>DISEÑO DE PROPULSIÓN (Responsive y Estilo)</h4>
-                        <p>
-                            Construimos el fuselaje visual con código limpio y ligero para la máxima velocidad.
-                        </p>
-                        <ul>
-                            <li><i class="fas fa-laptop-code"></i> **Desarrollo 100% Responsive:** Diseño que se adapta perfectamente a móvil, tablet y escritorio.</li>
-                            <li><i class="fas fa-palette"></i> **Identidad Visual Auda:** Uso de tu marca y nuestra paleta para alto impacto.</li>
-                            <li><i class="fas fa-bolt"></i> **Optimización de Velocidad:** Imágenes comprimidas y código minificado para el *core* web.</li>
-                        </ul>
-                    </div>
-
-                    <div class="content-item" id="stage3">
-                        <h4>INTEGRACIÓN DE CARGA (Leads y SEO)</h4>
-                        <p>
-                            Preparamos y conectamos todos los sistemas críticos para la generación de resultados y visibilidad.
-                        </p>
-                        <ul>
-                            <li><i class="fas fa-paper-plane"></i> **Captura de Leads (CRM):** Conexión de formularios a tu sistema de gestión de clientes.</li>
-                            <li><i class="fas fa-tachometer-alt"></i> **Optimización SEO Esencial:** Títulos, meta-descripciones y estructura Hx.</li>
-                            <li><i class="fas fa-chart-line"></i> **Instalación de Analytics:** Listos para medir el tráfico y el rendimiento desde el primer día.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="content-item" id="stage4">
-                        <h4>ACTIVACIÓN Y VUELO (Lanzamiento Final)</h4>
-                        <p>
-                            La etapa crucial donde tu landing page es desplegada y declarada operativa.
-                        </p>
-                        <ul>
-                            <li><i class="fas fa-server"></i> **Despliegue en Servidor Rápido:** Aseguramos un hosting de alta velocidad.</li>
-                            <li><i class="fas fa-clipboard-check"></i> **Control de Calidad (QC):** Pruebas de funcionalidad y validación de todos los enlaces.</li>
-                            <li><i class="fas fa-rocket"></i> **Lanzamiento y Monitoreo:** Puesta en vivo y confirmación de que la misión es **Completada**.</li>
-                        </ul>
-                    </div>
-
-                </div>
-                
-            </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
             
         </div>
-    </section>
+    </header>
 
-    <section id="contacto" class="contacto">
-        <div class="container">
-            
-            <h3>Conteo Final Para el Lanzamiento</h3>
-            
-            <div class="contact-content">
-                <p>
-                    ¡El tiempo corre! No pierdas más conversiones. Haz clic en el botón de abajo para comunicarte con la central de control.
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content-wrapper">
+                
+                <h2 class="hero-title">
+                    <span>Lanza Tu </span><br>
+                    LANDING PAGE CON <strong>IMPULSO</strong>
+                </h2>
+                
+                <p class="hero-subtitle">
+                    Diseño audaz y arquitectura sólida. ¡Velocidad y fiabilidad en cada lanzamiento!
                 </p>
                 
-                <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" 
-                   class="btn btn-primary">
-                    Iniciar Misión (Solicitar Presupuesto)
+                <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" class="btn btn-hero">¡Iniciar Despegue Ahora!</a>
+
+                <div class="rocket-container">
+                    
+                    <div class="rocket-flame-smoke">
+                        <div class="smoke-puff-base"></div>
+                        <div class="flame"></div>
+                    </div>
+                    
+                    <div class="rocket-shape">
+                        <div class="rocket-cone"></div>
+                        <div class="rocket-body">
+                            <div class="rocket-window"></div>
+                        </div>
+                        <div class="rocket-fin-left"></div>
+                        <div class="rocket-fin-right"></div>
+                    </div>
+                    
+                </div>
+                </div>
+        </section>
+
+        <section id="servicios" class="section-secondary">
+            <div class="container">
+                <h3>Etapas de Lanzamiento 🚀</h3>
+                
+                <div class="launch-stages">
+                    
+                    <div class="stage-nav">
+                        
+                        <div class="stage-step active" data-target="stage1">
+                            <div class="stage-icon">1</div>
+                            <div class="stage-title">Briefing Orbital</div>
+                        </div>
+
+                        <div class="stage-step" data-target="stage2">
+                            <div class="stage-icon">2</div>
+                            <div class="stage-title">Diseño de Propulsión</div>
+                        </div>
+                        
+                        <div class="stage-step" data-target="stage3">
+                            <div class="stage-icon">3</div>
+                            <div class="stage-title">Integración de Carga</div>
+                        </div>
+                        
+                        <div class="stage-step" data-target="stage4">
+                            <div class="stage-icon">4</div>
+                            <div class="stage-title">Activación y Vuelo</div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="stage-content">
+                        
+                        <div class="content-item active" id="stage1">
+                            <h4>BRIEFING ORBITAL (Diseño a la Medida)</h4>
+                            <p>
+                                Es el inicio de la misión. Analizamos tus objetivos, público meta y el mensaje clave que debe transmitir tu página.
+                            </p>
+                            <ul>
+                                <li><i class="fas fa-lightbulb"></i> **Definición Estratégica:** Claridad en el objetivo de conversión.</li>
+                                <li><i class="fas fa-sitemap"></i> **Arquitectura de Conversión:** Mapeo del flujo de usuario y secciones clave.</li>
+                                <li><i class="fas fa-crosshairs"></i> **Análisis de la Competencia:** Asegurar que tu mensaje destaque en órbita.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item" id="stage2">
+                            <h4>DISEÑO DE PROPULSIÓN (Responsive y Estilo)</h4>
+                            <p>
+                                Construimos el fuselaje visual con código limpio y ligero para la máxima velocidad.
+                            </p>
+                            <ul>
+                                <li><i class="fas fa-laptop-code"></i> **Desarrollo 100% Responsive:** Diseño que se adapta perfectamente a móvil, tablet y escritorio.</li>
+                                <li><i class="fas fa-palette"></i> **Identidad Visual Auda:** Uso de tu marca y nuestra paleta para alto impacto.</li>
+                                <li><i class="fas fa-bolt"></i> **Optimización de Velocidad:** Imágenes comprimidas y código minificado para el core web.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-item" id="stage3">
+                            <h4>INTEGRACIÓN DE CARGA (Leads y SEO)</h4>
+                            <p>
+                                Preparamos y conectamos todos los sistemas críticos para la generación de resultados y visibilidad.
+                            </p>
+                            <ul>
+                                <li><i class="fas fa-paper-plane"></i> **Captura de Leads (CRM):** Conexión de formularios a tu sistema de gestión de clientes.</li>
+                                <li><i class="fas fa-tachometer-alt"></i> **Optimización SEO Esencial:** Títulos, meta-descripciones y estructura Hx.</li>
+                                <li><i class="fas fa-chart-line"></i> **Instalación de Analytics:** Listos para medir el tráfico y el rendimiento desde el primer día.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="content-item" id="stage4">
+                            <h4>ACTIVACIÓN Y VUELO (Lanzamiento Final)</h4>
+                            <p>
+                                La etapa crucial donde tu landing page es desplegada y declarada operativa.
+                            </p>
+                            <ul>
+                                <li><i class="fas fa-server"></i> **Despliegue en Servidor Rápido:** Aseguramos un hosting de alta velocidad.</li>
+                                <li><i class="fas fa-clipboard-check"></i> **Control de Calidad (QC):** Pruebas de funcionalidad y validación de todos los enlaces.</li>
+                                <li><i class="fas fa-rocket"></i> **Lanzamiento y Monitoreo:** Puesta en vivo y confirmación de que la misión es **Completada**.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+        
+        <section id="beneficios" class="section-secondary">
+            <div class="container">
+                <h3>Beneficios de la Misión</h3>
+                <p>Nuestras landing pages no son solo bonitas, están diseñadas para generar **retorno de inversión** desde el primer click. Descubre las ventajas de un lanzamiento profesional.</p>
+
+                <div class="benefits-grid">
+                    
+                    <div class="benefit-card">
+                        <i class="fas fa-cogs"></i>
+                        <h4>Máxima Optimización SEO</h4>
+                        <p>Estructura de código **limpia** y **semántica** que facilita el rastreo de Google. Configuramos metadatos clave para iniciar el posicionamiento rápidamente.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h4>Conversión Garantizada</h4>
+                        <p>Diseño basado en principios de psicología del consumidor, con un **único foco de acción (CTA)**. Esto multiplica tu tasa de leads calificados.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Experiencia Ultra-Rápida</h4>
+                        <p>Velocidad de carga de nivel élite. Un **tiempo de respuesta rápido** reduce la tasa de rebote y mejora el ranking en los motores de búsqueda.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Seguridad y Estabilidad</h4>
+                        <p>Implementación de protocolos de seguridad esenciales. Tu activo digital estará protegido y operará 24/7 sin interrupciones inesperadas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section-secondary">
+            <div class="container">
+                <h3>Respuesta de Control de Misión (FAQ)</h3>
+                
+                <div class="faq-list">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Cuánto tiempo tardan en lanzar mi Landing Page?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nuestro proceso completo (desde el briefing hasta la activación) toma entre **7 y 10 días hábiles**, dependiendo de la complejidad del diseño y la integración de la carga (CRM).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Necesito ya tener mi propio Hosting y Dominio?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Recomendamos que el cliente ya cuente con su dominio. Nosotros nos encargamos del despliegue en tu **servidor** o podemos recomendarte un proveedor de alta velocidad optimizado para tu nueva página.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Qué pasa si mi Landing Page no convierte clientes?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nuestras páginas están diseñadas bajo métricas de conversión. Si después del lanzamiento no ves resultados, ofrecemos una **revisión estratégica y ajuste de CTA** sin costo adicional durante los primeros 30 días para optimizar la conversión.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ¿Están preparadas para integrarse con campañas de publicidad (Ads)?
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí. Instalamos el **Pixel de Meta (Facebook/Instagram)** y el **Tag de Google Ads** en la etapa 3, garantizando que tu página esté lista para recibir tráfico de pago y medir el retorno de la inversión.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="contacto" class="contacto">
+            <div class="container">
+                
+                <h3>Conteo Final Para el Lanzamiento</h3>
+                
+                <div class="contact-content">
+                    <p>
+                        ¡El tiempo corre! No pierdas más conversiones. Haz clic en el botón de abajo para comunicarte con la central de control.
+                    </p>
+                    
+                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" 
+                       class="btn btn-primary">
+                        Iniciar Misión (Solicitar Presupuesto)
+                    </a>
+                </div>
+            </div>
+        </section>
+        </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">🚀 YOURLANDING</div>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://instagram.com/tu-perfil" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/tu-perfil" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:jrdcdiaz2001@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
+
+            <p>
+                &copy; 2025 YourLanding. All rights reserved. | Diseñado con velocidad y precisión.
+            </p>
         </div>
-    </section>
-    </main>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Script del Menú Hamburguesa ---
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = navMenu.querySelectorAll('a');
+
+            function toggleMenu() {
+                navMenu.classList.toggle('open');
+                menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('open')) {
+                        toggleMenu(); 
+                    }
+                });
+            });
+
+            // --- Script de las Etapas de Lanzamiento (Tabs) ---
+            const stageSteps = document.querySelectorAll('.stage-step');
+            const contentItems = document.querySelectorAll('.content-item');
+
+            if (stageSteps.length > 0) {
+                stageSteps[0].classList.add('active');
+            }
+            if (contentItems.length > 0) {
+                contentItems[0].classList.add('active');
+            }
+
+            stageSteps.forEach(step => {
+                step.addEventListener('click', function() {
+                    stageSteps.forEach(s => s.classList.remove('active'));
+                    contentItems.forEach(c => c.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                });
+            });
+            
+            // --- NUEVO SCRIPT para FAQ (Acordeón) ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.toggle('active');
+
+                    // Cierra las demás respuestas si están abiertas (opcional: solo para un acordeón de un elemento)
+                    /* document.querySelectorAll('.faq-question.active').forEach(q => {
+                        if (q !== this) {
+                            q.classList.remove('active');
+                            q.nextElementSibling.classList.remove('open');
+                        }
+                    });
+                    */
+                    
+                    // Abre o cierra la respuesta actual
+                    if (isActive) {
+                        answer.classList.add('open');
+                    } else {
+                        answer.classList.remove('open');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
