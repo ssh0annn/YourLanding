@@ -8,18 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables */
+        /* Variables - ADAPTADAS AL ESTILO MINIMALISTA */
         :root {
-            --primary-color: #FF6B6B;
-            --secondary-color: #1D2B53;
-            --background-page: #EAE6E1;
-            --hero-bg-dark: #1F2E49;
+            --primary-color: #FF6B6B; /* Coral Vibrante (Acento/Fuego) */
+            --secondary-color: #1D2B53; /* Azul Profundo (Espacio/Texto Principal) */
+            --background-page: #EAE6E1; /* Gris de la imagen de referencia */
             --background-light: #F4F4F9; 
             --white: #ffffff;
             --text-dark: #333333;
             --text-light: #777777;
             --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
-            --section-padding-y: 60px; /* Nueva variable para padding vertical */
         }
 
         /* Base y Reset */
@@ -41,19 +39,13 @@
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
-            /* Padding para evitar que el contenido toque los bordes laterales */
-            padding: 0 0; 
+            padding: 20px 0;
         }
 
         h1, h2, h3 {
             margin-bottom: 1rem;
             line-height: 1.1;
             font-weight: 700;
-        }
-        
-        /* Ajuste fino del espaciado de títulos */
-        .hero-title {
-            margin-bottom: 20px !important;
         }
 
         p {
@@ -77,18 +69,6 @@
             font-size: 0.9rem;
         }
 
-        .hero .btn {
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: 1px solid var(--primary-color);
-            font-weight: 600;
-            margin-top: 15px; /* Espacio después del subtitulo */
-        }
-        .hero .btn:hover {
-            background-color: #e85a5a;
-            border-color: #e85a5a;
-        }
-
         .btn-primary {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -100,13 +80,31 @@
             transform: translateY(-1px);
         }
 
-        /* --- HEADER Y NAVEGACIÓN --- */
+        .btn-tag {
+            background: none;
+            color: var(--text-dark);
+            border: 1px solid var(--text-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 400;
+            margin: 0 5px;
+            text-transform: none;
+        }
+        .btn-tag:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-color: var(--secondary-color);
+        }
+
+        /* --- HEADER Y NAVEGACIÓN (NUEVA ESTRUCTURA) --- */
         
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 0 30px 0;
+            max-width: 1100px;
         }
 
         .logo {
@@ -115,12 +113,19 @@
             color: var(--secondary-color);
             font-weight: 700;
             letter-spacing: 2px;
-            z-index: 20;
+            text-align: left;
+            z-index: 20; /* Asegura que esté sobre el menú móvil */
         }
         .logo span {
             font-size: 0.8em;
         }
         
+        /* Ocultar elementos de la referencia (como los links de moda) */
+        .header-links-simulated {
+            display: none; 
+        }
+
+        /* Menú de Navegación (Escritorio) */
         .nav-menu {
             list-style: none;
             display: flex;
@@ -140,6 +145,7 @@
             color: var(--primary-color);
         }
         
+        /* Icono Hamburguesa (Oculto en Escritorio) */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -148,113 +154,82 @@
             font-size: 24px;
         }
 
-        /* --- SECCIÓN HERO (AJUSTES CLAVE DE ALINEACIÓN) --- */
+        /* --- SECCIÓN HERO --- (Estilos del diseño anterior) */
         .hero {
-            background-color: var(--hero-bg-dark);
             padding: 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding-bottom: 50px; 
-            border-radius: 30px;
-            box-shadow: var(--shadow-subtle);
-        }
-        
-        .hero-content-wrapper {
-            /* AJUSTE: Flexbox para alinear verticalmente todo el contenido principal */
-            display: flex;
-            justify-content: space-between;
-            align-items: center; /* Alineación vertical central */
-            padding: 100px 0; /* Aumentado el padding vertical para centrar mejor */
-            position: relative;
-            z-index: 10;
-            min-height: 450px; /* Altura mínima para asegurar el espacio */
-        }
-
-        .hero-left {
-            width: 50%;
-            text-align: left;
-            padding-right: 50px;
-        }
-
-        .hero-right {
-            width: 50%;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            position: relative;
-            height: 350px;
         }
 
         .hero-title {
-            font-size: 3.2rem; /* Ligeramente más grande */
-            letter-spacing: 5px;
-            color: var(--white);
+            font-size: 3.5rem; 
+            font-family: 'Roboto Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin: 50px auto 30px auto;
+            max-width: 900px;
+            line-height: 1.2;
+            color: var(--secondary-color);
         }
         
-        .hero-subtitle {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 0; /* Quitamos el margin-bottom aquí para controlarlo con el botón */
+        .hero-title strong {
+             color: var(--primary-color);
         }
 
-        /* Cohete (manteniendo animaciones) */
-        .rocket-wrapper {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            transform: translateY(50px);
-            animation: launch 4s ease-out forwards;
-        }
-        
-        .rocket-icon {
-            font-size: 100px;
-            display: block;
-            line-height: 1;
-        }
-        /* ... animaciones launch, flame, smoke-puff ... */
-        @keyframes launch {
-            0% { transform: translateY(50px) rotate(0deg); opacity: 0.2; }
-            50% { transform: translateY(0px) rotate(-2deg); opacity: 1; }
-            100% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
-        }
-        
-        @keyframes flame {
-            to { transform: scale(1.1); opacity: 0.8; }
-        }
-        
-        @keyframes flame-fade {
-            to { opacity: 0; }
-        }
-        
-        @keyframes smoke-puff {
-            0% { opacity: 0; transform: scale(0.5) translateX(-50%); }
-            100% { opacity: 0.5; transform: scale(1.5) translateX(-50%); }
-        }
-
-        /* Contenedor Colección (Ajuste de posición para no solapar texto) */
         .main-collection-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: left;
-            position: absolute;
-            top: 20px; /* Distancia del borde superior */
-            right: 50px; /* Ajuste para mantener alineación */
-            width: 40%; /* Ligeramente más pequeño para el diseño */
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-height: 300px; /* Limitar altura */
-        }
-        .main-collection-box h4 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            background-color: var(--white);
+            border-radius: 30px;
+            box-shadow: var(--shadow-subtle);
+            padding: 40px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
         }
 
-        /* --- SECCIONES INFERIORES (Alineación y espaciado consistente) --- */
+        .image-placeholder {
+            background-color: var(--secondary-color);
+            background-image: linear-gradient(135deg, #4b5883 0%, var(--secondary-color) 40%, var(--primary-color) 100%);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 40%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            text-align: left;
+            z-index: 10;
+        }
+        
+        .text-overlay p {
+            color: var(--white);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .text-overlay a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            border-bottom: 1px solid var(--primary-color);
+            padding-bottom: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        
+        /* Estilos de las secciones inferiores */
         .section-secondary {
             background-color: var(--white);
-            padding: var(--section-padding-y) 0;
+            padding: 60px 0;
             text-align: center;
             border-radius: 30px;
             margin: 40px auto;
@@ -277,68 +252,155 @@
             padding: 0 40px;
         }
 
-        /* Testimonios y Contacto: Alineación central mejorada */
+        .servicio-card {
+            background: var(--background-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: none;
+            text-align: center;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .servicio-card h4 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .servicio-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .testimonios {
+            padding: 60px 0;
+        }
+        
         .testimonio-card {
             background: var(--background-light);
             padding: 30px;
             border-radius: 8px;
             max-width: 600px;
-            margin: 20px auto; /* Centrado */
+            margin: 20px auto;
             box-shadow: none;
             border: 1px solid #ddd;
         }
         
+        .testimonio-card p {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .testimonio-card span {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .contacto {
+            padding-bottom: 80px;
+        }
+
         .contact-content {
             background: var(--background-light);
             padding: 50px;
             border-radius: 15px;
             max-width: 500px;
-            margin: 30px auto; /* Centrado */
+            margin: 30px auto;
             box-shadow: var(--shadow-subtle);
+        }
+
+        .contact-content p {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.85rem;
+            position: static; 
+            width: 100%;
+            margin-top: 40px;
         }
 
         /* --- RESPONSIVE / MENÚ HAMBURGUESA --- */
         @media (max-width: 900px) {
+            /* Ocultar el menú de escritorio */
+            .nav-menu {
+                display: none;
+            }
             
-            .menu-toggle { display: block; }
-            .nav-menu { display: none; }
-            
-            .hero-content-wrapper {
+            /* Mostrar el botón hamburguesa */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Estilo del menú desplegable (por defecto oculto) */
+            .nav-menu.open {
+                display: flex;
                 flex-direction: column;
-                padding: 50px 20px 20px 20px;
-                min-height: auto; /* Desactivar altura mínima en móvil */
-            }
-            .hero-left {
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 100%;
+                background-color: var(--secondary-color); /* Fondo oscuro para contraste */
+                padding-top: 80px;
+                padding-bottom: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 15;
+            }
+
+            .nav-menu.open li {
                 text-align: center;
-                padding-right: 0;
-                order: 2;
-            }
-            .hero-right {
-                width: 100%;
-                height: 250px;
-                margin-bottom: 30px;
-                order: 1;
-                justify-content: center;
+                margin: 10px 0;
             }
             
+            .nav-menu.open a {
+                color: var(--white);
+                font-size: 1.2rem;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            /* Ajuste para el logo y el toggle en la cabecera móvil */
+            .header .container {
+                padding-bottom: 10px;
+                position: relative;
+            }
+            
+            /* El resto de estilos responsive del diseño anterior */
             .hero-title {
-                font-size: 2.2rem;
-                letter-spacing: 3px;
-                text-align: center;
+                font-size: 2.5rem;
+                letter-spacing: 5px;
+                margin-top: 20px;
             }
-            
             .main-collection-box {
-                position: static;
-                width: 90%;
-                margin: 20px auto 0;
+                aspect-ratio: unset;
+                height: 50vh;
             }
-            
-            /* Ajustes finos de animación en móvil */
-            .rocket-wrapper {
-                right: unset;
-                left: 50%;
-                transform: translateX(-50%);
+        }
+        
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 1.8rem;
+                letter-spacing: 3px;
+            }
+            .text-overlay {
+                width: 80%;
+                left: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .text-overlay p {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -359,36 +421,35 @@
                 </ul>
             </nav>
             
-            <div class="header-links-simulated"></div>
+            <div class="header-links-simulated">
+                <span>🔍</span>
+                <span>👤</span>
+                <span>🛍️</span>
+            </div>
         </div>
     </header>
 
     <main>
         <section id="hero" class="hero">
-            <div class="container hero-content-wrapper">
+            <div class="container">
+                <h2 class="hero-title">
+                    <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
+                    LANDING PAGE CON **IMPULSO**
+                </h2>
                 
-                <div class="hero-left">
-                    <h2 class="hero-title">
-                        <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
-                        LANDING PAGE **PROFESIONAL**
-                    </h2>
-                    <p class="hero-subtitle">
-                        ¡Impulsa tus conversiones! Diseño, velocidad y resultados garantizados en cada lanzamiento.
-                    </p>
-                    <a href="#contacto" class="btn">¡Iniciar Despegue Ahora!</a>
+                <div style="display: flex; justify-content: center; margin-bottom: 40px;">
+                    <a href="#servicios" class="btn btn-tag">Páginas Ligeras</a>
+                    <a href="#servicios" class="btn btn-tag">Máxima Conversión</a>
                 </div>
 
-                <div class="hero-right">
-                    <div class="rocket-wrapper">
-                        <span class="rocket-icon" style="color: var(--primary-color);">🚀</span>
-                        <div class="rocket-base"></div>
-                        <div class="smoke"></div>
-                    </div>
+                <div class="main-collection-box">
+                    <div class="image-placeholder"></div>
                     
-                    <div class="main-collection-box">
-                        <h4>Misión de Conversión</h4>
-                        <p>Nuestro enfoque es la velocidad y la eficiencia. Diseñamos la arquitectura de tu landing para que convierta visitantes en leads o ventas, minimizando la fricción y maximizando el retorno de tu inversión.</p>
-                        <a href="#servicios" class="btn" style="background: var(--white); color: var(--secondary-color); border: none; padding: 8px 15px; font-size: 0.8rem; margin-top: 0;">Ver Servicios</a>
+                    <div class="text-overlay">
+                        <p>
+                            En YourLanding, diseñamos con la intención de **lanzar** productos digitales con líneas audaces y arquitectura sólida. Cada proyecto cuenta una historia de **velocidad y fiabilidad**, diseñado para quienes buscan moverse sin esfuerzo entre la tradición del buen diseño y la innovación en resultados.
+                        </p>
+                        <a href="#servicios">Explora la Arquitectura de Conversión ↗</a>
                     </div>
                 </div>
             </div>
@@ -440,7 +501,7 @@
                         ¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo y envíanos un email para solicitar tu presupuesto. Los datos clave ya estarán listos.
                     </p>
                     
-                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" 
+                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
                        class="btn btn-primary">
                         Solicitar Presupuesto (Email)
                     </a>
@@ -461,17 +522,20 @@
             const navMenu = document.getElementById('navMenu');
             const navLinks = navMenu.querySelectorAll('a');
 
+            // Función para alternar el menú
             function toggleMenu() {
                 navMenu.classList.toggle('open');
+                // Cambiar el ícono de hamburguesa a una X o similar
                 menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
             }
 
             menuToggle.addEventListener('click', toggleMenu);
 
+            // Cerrar el menú al hacer clic en un enlace (para la navegación de anclas)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('open')) {
-                        toggleMenu(); 
+                        toggleMenu(); // Cerrar el menú después de hacer clic
                     }
                 });
             });
