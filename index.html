@@ -34,7 +34,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--background-page);
-            padding-top: 0; /* AJUSTE: Quitamos el padding superior */
+            padding-top: 0; 
         }
 
         .container {
@@ -82,17 +82,19 @@
             transform: translateY(-1px);
         }
 
-        /* --- HEADER Y NAVEGACIÓN --- */
+        /* --- HEADER Y NAVEGACIÓN (AJUSTE CLAVE 1: ALINEACIÓN) --- */
         
         .header {
-            background-color: var(--background-page); /* Fondo del header para contrastar con Hero */
-            padding-top: 40px; /* Separación del top de la ventana, si lo queremos ver */
+            background-color: var(--background-page);
+            /* Mantenemos el padding top para separar el header de la ventana */
+            padding-top: 40px; 
         }
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0 30px 0;
+            /* AJUSTE: Quitamos el padding-bottom para alinear el logo y el toggle */
+            padding: 10px 0; 
         }
 
         .logo {
@@ -108,7 +110,7 @@
         }
 
         nav {
-            margin-left: auto; /* AJUSTE: Empuja la navegación de escritorio a la derecha */
+            margin-left: auto; /* Empuja la navegación de escritorio a la derecha */
         }
         
         .nav-menu {
@@ -138,27 +140,25 @@
             font-size: 24px;
         }
         
-        /* Ocultar los enlaces extra del header que no están en la nav principal */
         .header-links-simulated {
             display: none;
         }
 
-        /* --- SECCIÓN HERO (NUEVO ESTILO DE COHETE) --- */
+        /* --- SECCIÓN HERO --- */
         .hero {
             background-color: var(--hero-bg-dark);
             padding: 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-            padding-bottom: 0; /* Todo el relleno se manejará dentro del contenedor */
+            padding-bottom: 0; 
         }
         
         .hero-content-wrapper {
-            /* Mismo contenedor ancho para centrar el contenido */
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 100px 0 50px 0; /* Relleno solo arriba y abajo */
+            padding: 100px 0 50px 0; 
             position: relative;
             z-index: 1;
         }
@@ -184,7 +184,6 @@
             margin-bottom: 30px;
         }
         
-        /* Estilo del Botón en Hero */
         .hero .btn-hero {
             background-color: var(--primary-color);
             color: var(--white);
@@ -197,32 +196,29 @@
             border-color: #e85a5a;
         }
 
-        /* --- Estructura y Estilos del Cohete (Simulación del SVG) --- */
+        /* --- Estructura y Estilos del Cohete --- */
         
         .rocket-container {
-            /* Contenedor que centrará el cohete y el humo */
             position: relative;
             width: 100%;
-            height: 400px; /* Altura del área del cohete y el humo */
+            height: 400px; 
             margin-top: 50px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Cohete arriba, humo abajo */
+            align-items: flex-start; 
         }
 
-        /* Cohete (Usaremos un div con CSS para simular la forma) */
         .rocket-shape {
             position: absolute;
-            bottom: 0; /* Anclado al centro inferior del contenedor */
-            width: 150px; /* Ancho total del cohete (con aletas) */
-            height: 350px; /* Altura del cohete */
+            bottom: 0; 
+            width: 150px; 
+            height: 350px; 
             display: flex;
             flex-direction: column;
             align-items: center;
             z-index: 10;
         }
 
-        /* Parte Superior (Cono) */
         .rocket-cone {
             width: 0;
             height: 0;
@@ -232,7 +228,6 @@
             margin-bottom: -1px;
         }
 
-        /* Cuerpo */
         .rocket-body {
             width: 80px;
             height: 200px;
@@ -241,7 +236,6 @@
             position: relative;
         }
         
-        /* Ventana (Mirilla) */
         .rocket-window {
             width: 40px;
             height: 40px;
@@ -254,7 +248,6 @@
             transform: translateX(-50%);
         }
 
-        /* Aletas (Wings) */
         .rocket-fin-left, .rocket-fin-right {
             position: absolute;
             width: 0;
@@ -272,11 +265,11 @@
             right: -70px;
         }
 
-        /* --- Fuego y Humo Estático (Simulación de propulsión) --- */
+        /* --- Fuego y Humo Estático --- */
         
         .rocket-flame-smoke {
             position: absolute;
-            bottom: -50px; /* Posicionamiento debajo del cohete */
+            bottom: -50px; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -284,7 +277,6 @@
             z-index: 5;
         }
 
-        /* Fuego (Animación continua) */
         .flame {
             width: 60px;
             height: 60px;
@@ -295,7 +287,6 @@
             animation: pulse-flame 0.4s infinite alternate;
         }
         
-        /* Humo (Estela estática) */
         .smoke-puff-base {
             width: 100%;
             height: 200px;
@@ -307,7 +298,6 @@
             margin-top: -30px;
         }
 
-        /* Animaciones para la propulsión */
         @keyframes pulse-flame {
             0% { transform: scale(1, 0.8); opacity: 1; }
             100% { transform: scale(1.1, 1.2); opacity: 0.9; }
@@ -329,42 +319,23 @@
             box-shadow: var(--shadow-subtle);
         }
         
-        .section-secondary h3 {
-            color: var(--secondary-color);
-            font-size: 2rem;
-            margin-bottom: 40px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            padding: 0 40px;
-        }
-
-        .servicio-card {
-            background: var(--background-light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: none;
-            text-align: center;
-            border-left: 3px solid var(--primary-color);
-        }
-        
-        /* --- RESPONSIVE / MENÚ HAMBURGUESA (SLIDE DESDE LA DERECHA) --- */
+        /* --- RESPONSIVE / MENÚ HAMBURGUESA (AJUSTES CLAVE 2 y 3) --- */
         @media (max-width: 900px) {
             
-            .menu-toggle { display: block; }
+            .menu-toggle { 
+                display: block; 
+                /* AJUSTE: El cambio de icono ya está en JS */
+            }
             
             .nav-menu { 
                 display: none; 
                 position: fixed; 
+                /* AJUSTE CLAVE 2: Asegura que cubra desde el borde superior de la ventana */
                 top: 0;
                 right: 0; 
                 width: 70%; 
                 max-width: 300px;
+                /* AJUSTE CLAVE 2: Cubre toda la altura de la ventana */
                 height: 100vh;
                 background-color: var(--secondary-color); 
                 padding-top: 80px;
@@ -386,43 +357,37 @@
             .nav-menu.open li { margin: 10px 0; }
             .nav-menu.open a { color: var(--white); font-size: 1.2rem; display: block; padding: 10px 0; }
             
-            .header .container { padding-bottom: 10px; position: relative; }
+            .header .container { 
+                /* Mantenemos el padding vertical mínimo para el alineamiento perfecto */
+                padding: 10px 0; 
+                position: relative; 
+            }
             
-            /* Adaptación de Hero Section en móvil/tablet */
+            /* ... Adaptación de Hero Section en móvil/tablet ... */
             .hero-title {
                 font-size: 2.2rem;
                 letter-spacing: 3px;
             }
-            
             .rocket-container {
                 height: 300px;
                 margin-top: 30px;
             }
-            
             .rocket-shape {
                 width: 100px;
                 height: 250px;
             }
-            
             .rocket-cone {
                 border-left: 35px solid transparent;
                 border-right: 35px solid transparent;
                 border-bottom: 70px solid var(--primary-color);
             }
-            
             .rocket-body {
                 width: 50px;
                 height: 130px;
             }
-            
             .rocket-window {
                 width: 30px;
                 height: 30px;
-            }
-            
-            .rocket-fin-left, .rocket-fin-right {
-                border-top: 70px solid transparent;
-                border-bottom: 35px solid transparent;
             }
             .rocket-fin-left {
                 border-right: 50px solid var(--primary-color);
@@ -432,19 +397,13 @@
                 border-left: 50px solid var(--primary-color);
                 right: -50px;
             }
-            
             .rocket-flame-smoke {
                 width: 100px;
                 bottom: -30px;
             }
-            
             .flame {
                 width: 40px;
                 height: 40px;
-            }
-            
-            .smoke-puff-base {
-                height: 150px;
             }
         }
     </style>
@@ -572,6 +531,7 @@
 
             function toggleMenu() {
                 navMenu.classList.toggle('open');
+                // Esto maneja la animación del botón: cambia entre hamburguesa (☰) y cierre (✕)
                 menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
             }
 
