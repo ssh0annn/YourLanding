@@ -31,8 +31,8 @@
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
             line-height: 1.6;
-            background-color: var(--background-page); /* Fondo principal gris */
-            padding-top: 40px; /* Espacio superior */
+            background-color: var(--background-page);
+            padding-top: 40px;
         }
 
         .container {
@@ -54,12 +54,10 @@
         }
 
         /* --- Componentes --- */
-
-        /* Botones y Etiquetas */
         .btn {
             display: inline-block;
             padding: 12px 30px; 
-            border-radius: 4px; /* Bordes menos redondeados */
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
             transition: background-color 0.3s ease, transform 0.2s ease;
@@ -82,7 +80,6 @@
             transform: translateY(-1px);
         }
 
-        /* Botones de "Etiqueta" (Estilo Modern Icons/New Silhouettes) */
         .btn-tag {
             background: none;
             color: var(--text-dark);
@@ -100,53 +97,64 @@
             border-color: var(--secondary-color);
         }
 
-        /* --- Layout --- */
-
-        /* Header y Navegación */
+        /* --- HEADER Y NAVEGACIÓN (NUEVA ESTRUCTURA) --- */
+        
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 0 30px 0;
-            max-width: 950px; /* Centralizar más el header */
-        }
-        
-        /* Enlaces del Header a la izquierda (Home, Men, Women...) */
-        .header-links a {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-dark);
-            margin-right: 15px;
-            text-decoration: none;
-            font-weight: 300;
+            max-width: 1100px;
         }
 
-        /* Logo Central */
         .logo {
-            font-family: 'Roboto Mono', monospace; /* Tipo de letra más audaz */
-            font-size: 1.2rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.8rem;
             color: var(--secondary-color);
             font-weight: 700;
             letter-spacing: 2px;
-            text-align: center;
-            flex-grow: 1; /* Para centrarlo */
+            text-align: left;
+            z-index: 20; /* Asegura que esté sobre el menú móvil */
         }
         .logo span {
-            font-size: 0.8em; /* Ajuste para el emoji */
+            font-size: 0.8em;
+        }
+        
+        /* Ocultar elementos de la referencia (como los links de moda) */
+        .header-links-simulated {
+            display: none; 
         }
 
-        /* Iconos de la derecha (Search, Account, Cart) */
-        .header-icons {
-            font-size: 1.1rem;
+        /* Menú de Navegación (Escritorio) */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            z-index: 10;
+        }
+        .nav-menu a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        .header-icons span {
-            margin-left: 15px;
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Icono Hamburguesa (Oculto en Escritorio) */
+        .menu-toggle {
+            display: none;
             cursor: pointer;
+            z-index: 20;
+            color: var(--secondary-color);
+            font-size: 24px;
         }
 
-        /* --- SECCIÓN HERO (La parte principal) --- */
+        /* --- SECCIÓN HERO --- (Estilos del diseño anterior) */
         .hero {
             padding: 0;
             text-align: center;
@@ -156,7 +164,7 @@
             font-size: 3.5rem; 
             font-family: 'Roboto Mono', monospace;
             text-transform: uppercase;
-            letter-spacing: 10px; /* Estilo de la referencia */
+            letter-spacing: 10px;
             margin: 50px auto 30px auto;
             max-width: 900px;
             line-height: 1.2;
@@ -167,21 +175,19 @@
              color: var(--primary-color);
         }
 
-        /* Contenedor principal de la imagen/texto */
         .main-collection-box {
             background-color: var(--white);
-            border-radius: 30px; /* Bordes muy redondeados */
+            border-radius: 30px;
             box-shadow: var(--shadow-subtle);
             padding: 40px;
             margin-top: 30px;
             position: relative;
-            overflow: hidden; /* Necesario para la imagen */
+            overflow: hidden;
             max-width: 100%;
-            aspect-ratio: 16 / 9; /* Proporción de la imagen de ejemplo */
+            aspect-ratio: 16 / 9;
         }
 
         .image-placeholder {
-            /* Simular la imagen de fondo con los colores de tu tema */
             background-color: var(--secondary-color);
             background-image: linear-gradient(135deg, #4b5883 0%, var(--secondary-color) 40%, var(--primary-color) 100%);
             width: 100%;
@@ -219,9 +225,8 @@
             text-transform: uppercase;
             font-size: 0.85rem;
         }
-
-        /* --- SECCIONES INFERIORES --- */
-
+        
+        /* Estilos de las secciones inferiores */
         .section-secondary {
             background-color: var(--white);
             padding: 60px 0;
@@ -253,7 +258,7 @@
             border-radius: 8px;
             box-shadow: none;
             text-align: center;
-            border-left: 3px solid var(--primary-color); /* Toque de acento */
+            border-left: 3px solid var(--primary-color);
         }
         
         .servicio-card h4 {
@@ -267,10 +272,8 @@
             font-size: 0.9rem;
             color: var(--text-light);
         }
-
-        /* Testimonios */
+        
         .testimonios {
-            /* Usaremos el mismo estilo de contenedor secundario */
             padding: 60px 0;
         }
         
@@ -297,8 +300,7 @@
             display: block;
             margin-top: 10px;
         }
-
-        /* Contacto */
+        
         .contacto {
             padding-bottom: 80px;
         }
@@ -318,8 +320,6 @@
             color: var(--text-dark);
         }
 
-
-        /* Footer */
         .footer {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -331,9 +331,52 @@
             margin-top: 40px;
         }
 
+        /* --- RESPONSIVE / MENÚ HAMBURGUESA --- */
+        @media (max-width: 900px) {
+            /* Ocultar el menú de escritorio */
+            .nav-menu {
+                display: none;
+            }
+            
+            /* Mostrar el botón hamburguesa */
+            .menu-toggle {
+                display: block;
+            }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 850px) {
+            /* Estilo del menú desplegable (por defecto oculto) */
+            .nav-menu.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background-color: var(--secondary-color); /* Fondo oscuro para contraste */
+                padding-top: 80px;
+                padding-bottom: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 15;
+            }
+
+            .nav-menu.open li {
+                text-align: center;
+                margin: 10px 0;
+            }
+            
+            .nav-menu.open a {
+                color: var(--white);
+                font-size: 1.2rem;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            /* Ajuste para el logo y el toggle en la cabecera móvil */
+            .header .container {
+                padding-bottom: 10px;
+                position: relative;
+            }
+            
+            /* El resto de estilos responsive del diseño anterior */
             .hero-title {
                 font-size: 2.5rem;
                 letter-spacing: 5px;
@@ -344,49 +387,20 @@
                 height: 50vh;
             }
         }
+        
         @media (max-width: 600px) {
-            /* Header */
-            .header .container {
-                flex-direction: column;
-                padding: 10px 0;
-            }
-            .header-links, .header-icons {
-                display: none;
-            }
-            .logo {
-                font-size: 1.5rem;
-                padding: 10px 0;
-            }
-            
-            /* Hero */
             .hero-title {
                 font-size: 1.8rem;
                 letter-spacing: 3px;
             }
             .text-overlay {
-                width: 80%; /* Ocupa más en móvil */
+                width: 80%;
                 left: 10%;
                 top: 50%;
                 transform: translateY(-50%);
             }
             .text-overlay p {
                 font-size: 0.8rem;
-            }
-            .text-overlay a {
-                font-size: 0.75rem;
-            }
-
-            /* Servicios */
-            .servicios-grid {
-                padding: 0 20px;
-            }
-            .section-secondary h3 {
-                 font-size: 1.5rem;
-                 letter-spacing: 3px;
-            }
-            
-            .contact-content {
-                padding: 30px;
             }
         }
     </style>
@@ -395,14 +409,19 @@
 
     <header class="header">
         <div class="container">
-            <div class="header-links">
-                <a href="#hero">(Home)</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#testimonios">Clientes</a>
-                <a href="#contacto">Contacto</a>
-            </div>
             <h1 class="logo">🚀 <span>YOUR</span>LANDING</h1>
-            <div class="header-icons">
+            
+            <nav>
+                <div class="menu-toggle" id="menuToggle">☰</div>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#testimonios">Clientes</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-links-simulated">
                 <span>🔍</span>
                 <span>👤</span>
                 <span>🛍️</span>
@@ -424,8 +443,7 @@
                 </div>
 
                 <div class="main-collection-box">
-                    <div class="image-placeholder">
-                        </div>
+                    <div class="image-placeholder"></div>
                     
                     <div class="text-overlay">
                         <p>
@@ -433,7 +451,7 @@
                         </p>
                         <a href="#servicios">Explora la Arquitectura de Conversión ↗</a>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
 
@@ -480,7 +498,7 @@
                 <h3>**Inicia** el Conteo Final</h3>
                 <div class="contact-content">
                     <p>
-                        ¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo. Se abrirá tu correo con nuestra plantilla de solicitud lista para que la rellenes.
+                        ¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo y envíanos un email para solicitar tu presupuesto. Los datos clave ya estarán listos.
                     </p>
                     
                     <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
@@ -497,5 +515,31 @@
             <p>🚀 YourLanding. All rights reserved. | Diseñado con velocidad y precisión.</p>
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = navMenu.querySelectorAll('a');
+
+            // Función para alternar el menú
+            function toggleMenu() {
+                navMenu.classList.toggle('open');
+                // Cambiar el ícono de hamburguesa a una X o similar
+                menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+
+            // Cerrar el menú al hacer clic en un enlace (para la navegación de anclas)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('open')) {
+                        toggleMenu(); // Cerrar el menú después de hacer clic
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
