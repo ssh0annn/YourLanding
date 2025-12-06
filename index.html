@@ -12,7 +12,8 @@
         :root {
             --primary-color: #FF6B6B; /* Coral Vibrante (Acento/Fuego) */
             --secondary-color: #1D2B53; /* Azul Profundo (Espacio/Texto Principal) */
-            --background-page: #EAE6E1; /* Gris de la imagen de referencia */
+            --background-page: #EAE6E1; /* Gris de la imagen de referencia (Base) */
+            --hero-bg-dark: #1F2E49; /* Azul Oscuro para la Hero Section (Nuevo) */
             --background-light: #F4F4F9; 
             --white: #ffffff;
             --text-dark: #333333;
@@ -69,6 +70,18 @@
             font-size: 0.9rem;
         }
 
+        /* Botón de la Hero Section (Estilo Inverso para fondo oscuro) */
+        .hero .btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+            font-weight: 600;
+        }
+        .hero .btn:hover {
+            background-color: #e85a5a;
+            border-color: #e85a5a;
+        }
+
         .btn-primary {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -97,8 +110,7 @@
             border-color: var(--secondary-color);
         }
 
-        /* --- HEADER Y NAVEGACIÓN (NUEVA ESTRUCTURA) --- */
-        
+        /* --- HEADER Y NAVEGACIÓN --- */
         .header .container {
             display: flex;
             justify-content: space-between;
@@ -114,17 +126,12 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-align: left;
-            z-index: 20; /* Asegura que esté sobre el menú móvil */
+            z-index: 20;
         }
         .logo span {
             font-size: 0.8em;
         }
         
-        /* Ocultar elementos de la referencia (como los links de moda) */
-        .header-links-simulated {
-            display: none; 
-        }
-
         /* Menú de Navegación (Escritorio) */
         .nav-menu {
             list-style: none;
@@ -145,7 +152,6 @@
             color: var(--primary-color);
         }
         
-        /* Icono Hamburguesa (Oculto en Escritorio) */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -154,79 +160,146 @@
             font-size: 24px;
         }
 
-        /* --- SECCIÓN HERO --- (Estilos del diseño anterior) */
+        /* --- SECCIÓN HERO (ESTILO COHETE/ANIMACIÓN) --- */
         .hero {
+            background-color: var(--hero-bg-dark); /* Fondo Azul Oscuro */
             padding: 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 50px; /* Espacio para el humo */
+        }
+        
+        .hero-content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-left {
+            width: 50%;
+            text-align: left;
+            padding-right: 50px;
+        }
+
+        .hero-right {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            height: 350px; /* Altura para el cohete */
         }
 
         .hero-title {
-            font-size: 3.5rem; 
+            font-size: 3rem; 
             font-family: 'Roboto Mono', monospace;
             text-transform: uppercase;
-            letter-spacing: 10px;
-            margin: 50px auto 30px auto;
-            max-width: 900px;
-            line-height: 1.2;
-            color: var(--secondary-color);
+            letter-spacing: 5px;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            color: var(--white); /* Texto blanco sobre fondo oscuro */
         }
         
         .hero-title strong {
              color: var(--primary-color);
         }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
 
-        .main-collection-box {
-            background-color: var(--white);
-            border-radius: 30px;
-            box-shadow: var(--shadow-subtle);
-            padding: 40px;
-            margin-top: 30px;
+        /* Cohete (Simulación SVG/animación) */
+        .rocket-wrapper {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transform: translateY(50px); /* Posición inicial: ligeramente fuera de vista */
+            animation: launch 4s ease-out forwards; /* Animación de lanzamiento */
+        }
+        
+        .rocket-icon {
+            font-size: 100px; /* Tamaño del cohete */
+            display: block;
+            line-height: 1;
+        }
+        
+        .rocket-base {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto;
             position: relative;
-            overflow: hidden;
-            max-width: 100%;
-            aspect-ratio: 16 / 9;
+            bottom: -50px;
+            opacity: 0;
+            animation: flame 0.5s infinite alternate steps(2), flame-fade 2s 1s forwards;
+            box-shadow: 0 0 40px var(--primary-color);
+        }
+        
+        /* Humo / Estela */
+        .smoke {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            animation: smoke-puff 3s 1s ease-out forwards;
         }
 
-        .image-placeholder {
-            background-color: var(--secondary-color);
-            background-image: linear-gradient(135deg, #4b5883 0%, var(--secondary-color) 40%, var(--primary-color) 100%);
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* --- ANIMACIONES --- */
+        @keyframes launch {
+            0% { transform: translateY(50px) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateY(0px) rotate(-2deg); opacity: 1; }
+            100% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
         }
-
-        .text-overlay {
-            position: absolute;
-            top: 10%;
-            left: 5%;
-            width: 40%;
+        
+        @keyframes flame {
+            to { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        @keyframes flame-fade {
+            to { opacity: 0; }
+        }
+        
+        @keyframes smoke-puff {
+            0% { opacity: 0; transform: scale(0.5) translateX(-50%); }
+            100% { opacity: 0.5; transform: scale(1.5) translateX(-50%); }
+        }
+        
+        /* Contenedor Principal (Derecha) */
+        .main-collection-box {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparente */
+            border-radius: 10px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 8px;
             text-align: left;
-            z-index: 10;
-        }
-        
-        .text-overlay p {
-            color: var(--white);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 45%;
             font-size: 0.9rem;
-            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .main-collection-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .main-collection-box p {
+            margin-bottom: 15px;
+            line-height: 1.4;
         }
 
-        .text-overlay a {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            border-bottom: 1px solid var(--primary-color);
-            padding-bottom: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-        }
-        
-        /* Estilos de las secciones inferiores */
+        /* --- SECCIONES INFERIORES --- (Manteniendo estilos del diseño minimalista) */
         .section-secondary {
             background-color: var(--white);
             padding: 60px 0;
@@ -343,7 +416,7 @@
                 display: block;
             }
 
-            /* Estilo del menú desplegable (por defecto oculto) */
+            /* Estilo del menú desplegable */
             .nav-menu.open {
                 display: flex;
                 flex-direction: column;
@@ -351,7 +424,7 @@
                 top: 0;
                 left: 0;
                 width: 100%;
-                background-color: var(--secondary-color); /* Fondo oscuro para contraste */
+                background-color: var(--secondary-color); 
                 padding-top: 80px;
                 padding-bottom: 20px;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -370,37 +443,74 @@
                 padding: 10px 0;
             }
             
-            /* Ajuste para el logo y el toggle en la cabecera móvil */
             .header .container {
                 padding-bottom: 10px;
                 position: relative;
             }
             
-            /* El resto de estilos responsive del diseño anterior */
-            .hero-title {
-                font-size: 2.5rem;
-                letter-spacing: 5px;
-                margin-top: 20px;
+            /* Adaptación de la Hero Section en móvil/tablet */
+            .hero-content-wrapper {
+                flex-direction: column;
+                padding: 50px 20px 20px 20px;
             }
-            .main-collection-box {
-                aspect-ratio: unset;
-                height: 50vh;
+            .hero-left {
+                width: 100%;
+                text-align: center;
+                padding-right: 0;
+                order: 2; /* Mueve el texto debajo de la animación */
             }
-        }
-        
-        @media (max-width: 600px) {
+            .hero-right {
+                width: 100%;
+                height: 250px;
+                margin-bottom: 30px;
+                order: 1; /* Mueve la animación arriba */
+                justify-content: center;
+            }
+            
             .hero-title {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
                 letter-spacing: 3px;
+                text-align: center;
             }
-            .text-overlay {
-                width: 80%;
-                left: 10%;
-                top: 50%;
-                transform: translateY(-50%);
+            
+            .hero-subtitle {
+                text-align: center;
             }
-            .text-overlay p {
-                font-size: 0.8rem;
+
+            .main-collection-box {
+                position: static;
+                width: 90%;
+                margin: 20px auto 0;
+            }
+            
+            .rocket-wrapper {
+                transform: translateY(20px);
+                right: unset;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: launch-mobile 4s ease-out forwards;
+            }
+
+            @keyframes launch-mobile {
+                0% { transform: translateY(20px) translateX(-50%); opacity: 0.2; }
+                50% { transform: translateY(-20px) translateX(-50%); opacity: 1; }
+                100% { transform: translateY(-80px) translateX(-50%); opacity: 1; }
+            }
+            
+            .smoke {
+                bottom: -30px;
+            }
+            
+            .servicios-grid {
+                padding: 0 20px;
+            }
+            .section-secondary h3 {
+                 font-size: 1.5rem;
+                 letter-spacing: 3px;
+            }
+            
+            .contact-content {
+                padding: 30px;
             }
         }
     </style>
@@ -422,34 +532,36 @@
             </nav>
             
             <div class="header-links-simulated">
-                <span>🔍</span>
-                <span>👤</span>
-                <span>🛍️</span>
-            </div>
+                </div>
         </div>
     </header>
 
     <main>
         <section id="hero" class="hero">
-            <div class="container">
-                <h2 class="hero-title">
-                    <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
-                    LANDING PAGE CON **IMPULSO**
-                </h2>
+            <div class="container hero-content-wrapper">
                 
-                <div style="display: flex; justify-content: center; margin-bottom: 40px;">
-                    <a href="#servicios" class="btn btn-tag">Páginas Ligeras</a>
-                    <a href="#servicios" class="btn btn-tag">Máxima Conversión</a>
+                <div class="hero-left">
+                    <h2 class="hero-title">
+                        <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
+                        LANDING PAGE **PROFESIONAL**
+                    </h2>
+                    <p class="hero-subtitle">
+                        ¡Impulsa tus conversiones! Diseño, velocidad y resultados garantizados en cada lanzamiento.
+                    </p>
+                    <a href="#contacto" class="btn">¡Iniciar Despegue Ahora!</a>
                 </div>
 
-                <div class="main-collection-box">
-                    <div class="image-placeholder"></div>
+                <div class="hero-right">
+                    <div class="rocket-wrapper">
+                        <span class="rocket-icon" style="color: var(--primary-color);">🚀</span>
+                        <div class="rocket-base"></div>
+                        <div class="smoke"></div>
+                    </div>
                     
-                    <div class="text-overlay">
-                        <p>
-                            En YourLanding, diseñamos con la intención de **lanzar** productos digitales con líneas audaces y arquitectura sólida. Cada proyecto cuenta una historia de **velocidad y fiabilidad**, diseñado para quienes buscan moverse sin esfuerzo entre la tradición del buen diseño y la innovación en resultados.
-                        </p>
-                        <a href="#servicios">Explora la Arquitectura de Conversión ↗</a>
+                    <div class="main-collection-box">
+                        <h4>Misión de Conversión</h4>
+                        <p>Nuestro enfoque es la velocidad y la eficiencia. Diseñamos la arquitectura de tu landing para que convierta visitantes en leads o ventas, minimizando la fricción y maximizando el retorno de tu inversión.</p>
+                        <a href="#servicios" class="btn" style="background: var(--white); color: var(--secondary-color); border: none; padding: 8px 15px; font-size: 0.8rem;">Ver Servicios</a>
                     </div>
                 </div>
             </div>
@@ -501,7 +613,7 @@
                         ¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo y envíanos un email para solicitar tu presupuesto. Los datos clave ya estarán listos.
                     </p>
                     
-                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
+                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" 
                        class="btn btn-primary">
                         Solicitar Presupuesto (Email)
                     </a>
