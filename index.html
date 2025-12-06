@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourLanding - Landing Pages Profesionales</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>🚀 YourLanding - Landing Pages Profesionales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables */
+        /* Variables - TEMÁTICA COHETE/ESPACIAL */
         :root {
-            --primary-color: #007bff; /* Azul vibrante */
-            --secondary-color: #28a745; /* Verde para acción secundaria */
-            --text-color: #333;
-            --background-light: #f8f9fa;
+            --primary-color: #FF6B6B; /* Coral Vibrante (Fuego/Impulso) */
+            --secondary-color: #1D2B53; /* Azul Profundo (Espacio) */
+            --text-color: #333333;
+            --background-light: #F4F4F9; /* Gris Claro (Base) */
             --white: #ffffff;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
         /* Base y Reset */
@@ -52,41 +52,48 @@
         /* Botones */
         .btn {
             display: inline-block;
-            padding: 10px 25px;
-            border-radius: 50px;
+            padding: 12px 30px; 
+            border-radius: 8px; 
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
             text-align: center;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
             color: var(--white);
-            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
+            background-color: #e85a5a;
             transform: translateY(-2px);
         }
 
         .btn-secondary {
             background-color: var(--secondary-color);
             color: var(--white);
-            box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+            box-shadow: 0 5px 15px rgba(29, 43, 83, 0.3); /* Sombra de color espacial */
         }
 
         .btn-secondary:hover {
-            background-color: #1e7e34;
+            background-color: #111a33;
             transform: translateY(-2px);
         }
 
         .btn-header {
             padding: 8px 20px;
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
+            border-radius: 50px; 
+        }
+        
+        .btn-header:hover {
+            background-color: #e85a5a;
         }
 
         /* --- Layout --- */
@@ -94,7 +101,7 @@
         /* Header y Navegación */
         .header {
             background-color: var(--white);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -108,21 +115,21 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            font-weight: 800; /* Más audaz */
         }
 
         .nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
 
         .nav a {
             text-decoration: none;
             color: var(--text-color);
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -133,14 +140,14 @@
         /* Hero Section */
         .hero {
             background-color: var(--background-light);
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
+            font-size: 3rem; 
             margin-bottom: 1.5rem;
-            color: #212529;
+            color: var(--secondary-color);
         }
 
         .hero h2 strong {
@@ -148,20 +155,23 @@
         }
 
         .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: #555;
         }
 
         /* Servicios Section */
         .servicios {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
+            background-color: var(--white);
         }
 
         .servicios h3 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--secondary-color);
         }
 
         .servicios h3 strong {
@@ -170,73 +180,81 @@
 
         .servicios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
 
         .servicio-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease;
+            background: var(--background-light); 
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: none; 
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, border-color 0.3s;
             text-align: left;
         }
 
         .servicio-card:hover {
             transform: translateY(-5px);
+            border-color: var(--primary-color); 
         }
 
         .servicio-card h4 {
-            color: var(--primary-color);
-            font-size: 1.25rem;
+            color: var(--secondary-color);
+            font-size: 1.35rem;
             margin-bottom: 10px;
         }
 
         /* Testimonios Section */
         .testimonios {
             background-color: var(--background-light);
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
         }
 
         .testimonios h3 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            margin-bottom: 3.5rem;
+            color: var(--secondary-color);
         }
 
         .testimonio-card {
             background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
+            padding: 35px;
+            border-radius: 12px;
             box-shadow: var(--shadow-light);
-            margin-bottom: 20px;
-            max-width: 700px;
+            margin-bottom: 25px;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .testimonio-card p {
             font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            color: #555;
         }
 
         .testimonio-card span {
             display: block;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         /* Contacto Section */
         .contacto {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
+            background-color: var(--white);
         }
 
         .contacto h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            color: var(--secondary-color);
         }
 
         .contacto h3 strong {
@@ -246,19 +264,24 @@
         .contact-content {
             max-width: 600px;
             margin: 0 auto;
-            padding: 30px;
+            padding: 40px;
             background: var(--background-light);
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: var(--shadow-light);
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
+            background-color: var(--secondary-color);
             color: var(--white);
             text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
+            padding: 25px 0;
+            font-size: 0.95rem;
         }
 
         /* --- Responsive (Móviles) --- */
@@ -269,12 +292,12 @@
             }
 
             .nav {
-                margin-top: 10px;
+                margin-top: 15px;
             }
 
             .nav ul {
                 justify-content: center;
-                gap: 10px;
+                gap: 15px;
             }
             
             .nav a {
@@ -282,15 +305,15 @@
             }
             
             .btn-header {
-                margin-top: 10px;
+                margin-top: 15px;
             }
 
             .hero {
-                padding: 60px 0;
+                padding: 80px 0;
             }
 
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .servicios-grid {
@@ -298,11 +321,11 @@
             }
 
             .servicio-card {
-                padding: 20px;
+                padding: 30px;
             }
 
             .contact-content {
-                padding: 20px;
+                padding: 30px;
             }
         }
     </style>
@@ -311,12 +334,12 @@
 
     <header class="header">
         <div class="container">
-            <h1 class="logo">YourLanding</h1>
+            <h1 class="logo">🚀 YourLanding</h1>
             <nav class="nav">
                 <ul>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#contacto" class="btn btn-header">¡Empezar Ahora!</a></li>
+                    <li><a href="#contacto" class="btn btn-header">¡Lanzar Proyecto!</a></li>
                 </ul>
             </nav>
         </div>
@@ -326,32 +349,32 @@
         <section id="hero" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h2>Tu Negocio **Merece una Landing Page** que Convierta.</h2>
-                    <p>En YourLanding, diseñamos y desarrollamos landing pages de alto impacto, enfocadas en empresas y pequeños negocios que buscan resultados reales.</p>
-                    <a href="#contacto" class="btn btn-primary">Quiero mi Landing Page</a>
+                    <h2>Impulsa tu Negocio: **Lanza una Landing Page** que Convierta.</h2>
+                    <p>En YourLanding, diseñamos y desarrollamos páginas de aterrizaje de **alto octanaje**, enfocadas en empresas y pequeños negocios que buscan resultados a la velocidad de la luz.</p>
+                    <a href="#contacto" class="btn btn-primary">¡Quiero mi Lanzamiento!</a>
                 </div>
                 </div>
         </section>
 
         <section id="servicios" class="servicios">
             <div class="container">
-                <h3>Nuestros Servicios **Clave**</h3>
+                <h3>Nuestros Servicios **Clave** para el Despegue</h3>
                 <div class="servicios-grid">
                     <div class="servicio-card">
-                        <h4>Diseño Personalizado</h4>
-                        <p>Diseños **únicos** que reflejan tu marca y cautivan a tu audiencia.</p>
+                        <h4>Diseño Ultrarrápido</h4>
+                        <p>Diseños **únicos** y optimizados para la máxima velocidad de carga (clave para el SEO).</p>
                     </div>
                     <div class="servicio-card">
-                        <h4>Optimización SEO Básico</h4>
-                        <p>Preparamos tu página para ser encontrada por tus clientes potenciales en buscadores.</p>
+                        <h4>Optimización de Propulsión (SEO)</h4>
+                        <p>Preparamos tu página para ser encontrada y rankear alto en las búsquedas.</p>
                     </div>
                     <div class="servicio-card">
-                        <h4>Respuesta Móvil (Responsive)</h4>
-                        <p>Tu landing se verá **perfecta** en cualquier dispositivo: móvil, tablet o desktop.</p>
+                        <h4>Respuesta Móvil (Multiplataforma)</h4>
+                        <p>Tu landing se verá **perfecta** en cualquier dispositivo, lista para el **despegue**.</p>
                     </div>
                     <div class="servicio-card">
-                        <h4>Integración de Formularios</h4>
-                        <p>Conexión simple con tus herramientas de email marketing y gestión de leads.</p>
+                        <h4>Integración de Leads</h4>
+                        <p>Conexión simple para capturar leads y poner tus conversiones en órbita.</p>
                     </div>
                 </div>
             </div>
@@ -359,13 +382,13 @@
 
         <section id="testimonios" class="testimonios">
             <div class="container">
-                <h3>Lo que Dicen Nuestros **Clientes**</h3>
+                <h3>Clientes que ya están en **Órbita**</h3>
                 <div class="testimonio-card">
                     <p>"El equipo de YourLanding superó mis expectativas. La página es hermosa y mis conversiones se duplicaron en un mes."</p>
                     <span>— Ana P., Dueña de Boutique Online</span>
                 </div>
                 <div class="testimonio-card">
-                    <p>"Un servicio rápido, profesional y enfocado 100% en el resultado. ¡Recomendados!"</p>
+                    <p>"Un servicio rápido, profesional y enfocado 100% en el resultado. ¡Mi negocio despegó gracias a ellos!"</p>
                     <span>— Carlos M., Consultor de Marketing</span>
                 </div>
             </div>
@@ -373,11 +396,11 @@
 
         <section id="contacto" class="contacto">
             <div class="container">
-                <h3>**Hablemos** de tu Proyecto</h3>
+                <h3>**Prepárate** para el Lanzamiento</h3>
                 <div class="contact-content">
-                    <p>Haz clic en el botón de abajo para enviarnos un correo electrónico. La plantilla ya estará lista para que solo tengas que rellenar los datos.</p>
+                    <p>¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo y envíanos un email para solicitar tu presupuesto. Los datos clave ya estarán listos.</p>
                     
-                    <a href="mailto:tu-email@tudominio.com?subject=Solicitud%20de%20Presupuesto%20Landing%20Page%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
+                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
                        class="btn btn-secondary">
                         Solicitar Presupuesto por Email
                     </a>
@@ -388,8 +411,8 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 YourLanding. Todos los derechos reservados.</p>
+            <p>&copy; 2024 YourLanding. Todos los derechos reservados. | 🚀 ¡Enviando proyectos al espacio!</p>
         </div>
     </footer>
-    </body>
+</body>
 </html>
