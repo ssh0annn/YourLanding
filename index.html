@@ -19,7 +19,6 @@
             --text-dark: #333333;
             --text-light: #777777;
             --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
-            --shadow-bento: 0 4px 8px rgba(0, 0, 0, 0.03);
             --section-padding-y: 60px;
         }
 
@@ -72,14 +71,17 @@
             font-size: 0.9rem;
         }
         
+        /* Botón general - Adaptado para Contacto Final */
         .btn-primary {
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color); /* Usamos el color de acento */
             color: var(--white);
+            border: 1px solid var(--primary-color);
+            font-weight: 600;
         }
 
         .btn-primary:hover {
-            background-color: var(--text-dark);
-            border-color: var(--text-dark);
+            background-color: #e85a5a; /* Tono más oscuro de coral */
+            border-color: #e85a5a;
             transform: translateY(-1px);
         }
 
@@ -139,10 +141,6 @@
             font-size: 24px;
         }
         
-        .header-links-simulated {
-            display: none;
-        }
-
         /* --- SECCIÓN HERO (Cohete) --- */
         .hero {
             background-color: var(--hero-bg-dark);
@@ -195,7 +193,7 @@
             border-color: #e85a5a;
         }
 
-        /* --- Estructura y Estilos del Cohete --- */
+        /* --- Estructura y Estilos del Cohete (Se mantiene) --- */
         
         .rocket-container {
             position: relative;
@@ -267,7 +265,6 @@
             width: 150px;
             z-index: 5;
         }
-
         .flame {
             width: 60px;
             height: 60px;
@@ -277,7 +274,6 @@
             transform: scaleY(0.8);
             animation: pulse-flame 0.4s infinite alternate;
         }
-        
         .smoke-puff-base {
             width: 100%;
             height: 200px;
@@ -288,12 +284,10 @@
             animation: pulse-smoke 2s infinite alternate;
             margin-top: -30px;
         }
-
         @keyframes pulse-flame {
             0% { transform: scale(1, 0.8); opacity: 1; }
             100% { transform: scale(1.1, 1.2); opacity: 0.9; }
         }
-        
         @keyframes pulse-smoke {
             0% { transform: scale(0.95); opacity: 0.1; }
             100% { transform: scale(1); opacity: 0.2; }
@@ -318,8 +312,7 @@
             text-transform: uppercase;
         }
 
-        /* --- NUEVA SECCIÓN DE SERVICIOS: ETAPAS DE LANZAMIENTO (TABS) --- */
-        
+        /* --- SECCIÓN DE SERVICIOS: ETAPAS DE LANZAMIENTO (TABS) --- */
         .launch-stages {
             display: flex;
             flex-direction: column;
@@ -327,8 +320,6 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        
-        /* Contenedor de las pestañas (círculos/pasos) */
         .stage-nav {
             display: flex;
             justify-content: space-between;
@@ -337,8 +328,6 @@
             position: relative;
             margin-bottom: 30px;
         }
-        
-        /* Línea de tiempo / Conector */
         .stage-nav::before {
             content: '';
             position: absolute;
@@ -349,7 +338,6 @@
             background-color: var(--text-light);
             z-index: 1;
         }
-
         .stage-step {
             position: relative;
             z-index: 2;
@@ -357,7 +345,6 @@
             text-align: center;
             flex: 1;
         }
-
         .stage-icon {
             width: 50px;
             height: 50px;
@@ -371,9 +358,8 @@
             align-items: center;
             margin: 0 auto 10px auto;
             transition: all 0.3s ease;
-            box-shadow: 0 0 0 5px var(--white); /* Para que resalte sobre la línea */
+            box-shadow: 0 0 0 5px var(--white);
         }
-
         .stage-title {
             font-size: 0.85rem;
             font-weight: 600;
@@ -381,8 +367,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
-        /* Estado activo de la pestaña */
         .stage-step.active .stage-icon {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
@@ -390,10 +374,8 @@
             box-shadow: 0 0 0 5px var(--white), 0 0 10px var(--primary-color);
             transform: scale(1.1);
         }
-
-        /* Contenido de la pestaña */
         .stage-content {
-            background-color: var(--hero-bg-dark); /* Color oscuro del Hero */
+            background-color: var(--hero-bg-dark); 
             color: var(--white);
             padding: 30px;
             border-radius: 15px;
@@ -402,66 +384,80 @@
             min-height: 200px;
             box-shadow: var(--shadow-subtle);
         }
-        
         .stage-content h4 {
             color: var(--primary-color);
             font-size: 1.5rem;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
-        
         .stage-content p {
             font-size: 1rem;
             line-height: 1.7;
             color: rgba(255, 255, 255, 0.9);
         }
-
-        .content-item {
-            display: none;
-        }
-        
+        .content-item { display: none; }
         .content-item.active {
             display: block;
             animation: fadeIn 0.5s ease-out;
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
 
-        /* --- OTROS ESTILOS --- */
+        /* --- NUEVOS ESTILOS SECCIÓN CONTACTO (EL CONTEO FINAL) --- */
         
-        .testimonios {
-            padding: var(--section-padding-y) 0;
-        }
-        .testimonio-card {
-            background: var(--background-light);
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: 20px auto;
-            box-shadow: none;
-            border: 1px solid #ddd;
+        .contacto {
+            background-color: var(--secondary-color); /* Fondo Azul Profundo */
+            padding: 80px 0; /* Más padding para que destaque */
             text-align: center;
-        }
-        
-        .contact-content {
-            background: var(--background-light);
-            padding: 50px;
-            border-radius: 15px;
-            max-width: 500px;
-            margin: 30px auto;
-            box-shadow: var(--shadow-subtle);
+            color: var(--white);
         }
 
-        /* --- RESPONSIVE / MENÚ HAMBURGUESA --- */
+        .contacto h3 {
+            color: var(--primary-color); /* Título en Coral (Fuego) */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .contact-content {
+            /* Eliminamos el fondo blanco interior para que Contacto sea un solo bloque de color */
+            background: none; 
+            padding: 0;
+            max-width: 700px;
+            margin: 30px auto;
+            box-shadow: none;
+        }
+        
+        .contact-content p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+        
+        .contact-content .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* --- ESTILOS DE FOOTER --- */
+        .footer {
+            background-color: var(--hero-bg-dark);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+
+        /* --- RESPONSIVE / AJUSTES MÓVILES --- */
         @media (max-width: 900px) {
             
             .menu-toggle { display: block; }
             .nav-menu { 
-                /* Estilos ya definidos para el menú móvil */
                 display: none; 
                 position: fixed; 
                 top: 0;
@@ -484,10 +480,7 @@
                 transform: translateX(0);
             }
             
-            .header .container { 
-                padding: 10px 0; 
-                position: relative; 
-            }
+            .header .container { padding: 10px 0; position: relative; }
             
             /* Responsive para las etapas (se vuelven verticales) */
             .stage-nav {
@@ -510,7 +503,7 @@
                 align-items: center;
                 text-align: left;
                 padding: 15px 0;
-                margin-left: -15px; /* Empujar un poco el texto hacia la izquierda */
+                margin-left: -15px; 
             }
             
             .stage-icon {
@@ -520,6 +513,14 @@
             
             .stage-title {
                 text-align: left;
+            }
+            
+            /* Ajustes en Contacto Móvil */
+            .contacto h3 {
+                font-size: 2rem;
+            }
+            .contact-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -535,7 +536,6 @@
                 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#testimonios">Clientes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -647,36 +647,24 @@
             </div>
         </section>
 
-        <section id="testimonios" class="section-secondary testimonios">
-            <div class="container">
-                <h3>Voces desde la **Estación Espacial**</h3>
-                <div class="testimonio-card">
-                    <p>"El diseño es espectacularmente limpio y moderno. Lograron capturar mi visión con una eficiencia asombrosa."</p>
-                    <span>— Ana P., Boutique de Diseño</span>
-                </div>
-                <div class="testimonio-card">
-                    <p>"Veloces, profesionales y la conversión se disparó. Este equipo sabe cómo hacer despegar un proyecto."</p>
-                    <span>— Carlos M., Consultor de Tecnología</span>
-                </div>
-            </div>
-        </section>
-
         <section id="contacto" class="contacto">
             <div class="container">
-                <h3>**Inicia** el Conteo Final</h3>
+                
+                <h3>**Conteo Final** Para el Lanzamiento</h3>
+                
                 <div class="contact-content">
                     <p>
-                        ¡Es hora de poner tu proyecto en órbita! Haz clic en el botón de abajo y envíanos un email para solicitar tu presupuesto. Los datos clave ya estarán listos.
+                        ¡El tiempo corre! No pierdas más conversiones. Haz clic en el botón de abajo para comunicarte con la central de control.
                     </p>
                     
                     <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
                        class="btn btn-primary">
-                        Solicitar Presupuesto (Email)
+                        Iniciar Misión (Solicitar Presupuesto)
                     </a>
                 </div>
             </div>
         </section>
-    </main>
+        </main>
 
     <footer class="footer">
         <div class="container">
