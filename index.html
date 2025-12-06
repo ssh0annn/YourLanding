@@ -8,17 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables - ADAPTADAS AL ESTILO MINIMALISTA */
+        /* Variables */
         :root {
-            --primary-color: #FF6B6B; /* Coral Vibrante (Acento/Fuego) */
-            --secondary-color: #1D2B53; /* Azul Profundo (Espacio/Texto Principal) */
-            --background-page: #EAE6E1; /* Gris de la imagen de referencia (Base) */
-            --hero-bg-dark: #1F2E49; /* Azul Oscuro para la Hero Section */
+            --primary-color: #FF6B6B;
+            --secondary-color: #1D2B53;
+            --background-page: #EAE6E1;
+            --hero-bg-dark: #1F2E49;
             --background-light: #F4F4F9; 
             --white: #ffffff;
             --text-dark: #333333;
             --text-light: #777777;
             --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --section-padding-y: 60px; /* Nueva variable para padding vertical */
         }
 
         /* Base y Reset */
@@ -40,13 +41,19 @@
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px 0;
+            /* Padding para evitar que el contenido toque los bordes laterales */
+            padding: 0 0; 
         }
 
         h1, h2, h3 {
             margin-bottom: 1rem;
             line-height: 1.1;
             font-weight: 700;
+        }
+        
+        /* Ajuste fino del espaciado de títulos */
+        .hero-title {
+            margin-bottom: 20px !important;
         }
 
         p {
@@ -70,12 +77,12 @@
             font-size: 0.9rem;
         }
 
-        /* Botón de la Hero Section (Estilo Inverso para fondo oscuro) */
         .hero .btn {
             background-color: var(--primary-color);
             color: var(--white);
             border: 1px solid var(--primary-color);
             font-weight: 600;
+            margin-top: 15px; /* Espacio después del subtitulo */
         }
         .hero .btn:hover {
             background-color: #e85a5a;
@@ -93,31 +100,13 @@
             transform: translateY(-1px);
         }
 
-        .btn-tag {
-            background: none;
-            color: var(--text-dark);
-            border: 1px solid var(--text-dark);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 400;
-            margin: 0 5px;
-            text-transform: none;
-        }
-        .btn-tag:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            border-color: var(--secondary-color);
-        }
-
-        /* --- HEADER Y NAVEGACIÓN (ESTRUCTURA MÍNIMA CORREGIDA) --- */
+        /* --- HEADER Y NAVEGACIÓN --- */
         
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 0 30px 0;
-            max-width: 1100px;
         }
 
         .logo {
@@ -126,14 +115,12 @@
             color: var(--secondary-color);
             font-weight: 700;
             letter-spacing: 2px;
-            text-align: left;
             z-index: 20;
         }
         .logo span {
             font-size: 0.8em;
         }
         
-        /* Menú de Navegación (Escritorio) */
         .nav-menu {
             list-style: none;
             display: flex;
@@ -153,7 +140,6 @@
             color: var(--primary-color);
         }
         
-        /* Icono Hamburguesa */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -162,25 +148,27 @@
             font-size: 24px;
         }
 
-        /* --- SECCIÓN HERO (ESTILO COHETE/ANIMACIÓN) --- */
+        /* --- SECCIÓN HERO (AJUSTES CLAVE DE ALINEACIÓN) --- */
         .hero {
-            background-color: var(--hero-bg-dark); /* Fondo Azul Oscuro */
+            background-color: var(--hero-bg-dark);
             padding: 0;
             text-align: center;
             position: relative;
             overflow: hidden;
             padding-bottom: 50px; 
-            border-radius: 30px; /* Borde superior para separar del header */
+            border-radius: 30px;
             box-shadow: var(--shadow-subtle);
         }
         
         .hero-content-wrapper {
+            /* AJUSTE: Flexbox para alinear verticalmente todo el contenido principal */
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 80px 0;
+            align-items: center; /* Alineación vertical central */
+            padding: 100px 0; /* Aumentado el padding vertical para centrar mejor */
             position: relative;
             z-index: 10;
+            min-height: 450px; /* Altura mínima para asegurar el espacio */
         }
 
         .hero-left {
@@ -199,26 +187,18 @@
         }
 
         .hero-title {
-            font-size: 3rem; 
-            font-family: 'Roboto Mono', monospace;
-            text-transform: uppercase;
+            font-size: 3.2rem; /* Ligeramente más grande */
             letter-spacing: 5px;
-            margin: 0 0 20px 0;
-            line-height: 1.1;
             color: var(--white);
-        }
-        
-        .hero-title strong {
-             color: var(--primary-color);
         }
         
         .hero-subtitle {
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 30px;
+            margin-bottom: 0; /* Quitamos el margin-bottom aquí para controlarlo con el botón */
         }
 
-        /* Cohete (Simulación SVG/animación) */
+        /* Cohete (manteniendo animaciones) */
         .rocket-wrapper {
             position: absolute;
             right: 0;
@@ -232,36 +212,7 @@
             display: block;
             line-height: 1;
         }
-        
-        .rocket-base {
-            width: 100px;
-            height: 100px;
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 auto;
-            position: relative;
-            bottom: -50px;
-            opacity: 0;
-            animation: flame 0.5s infinite alternate steps(2), flame-fade 2s 1s forwards;
-            box-shadow: 0 0 40px var(--primary-color);
-        }
-        
-        /* Humo / Estela */
-        .smoke {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-            opacity: 0;
-            animation: smoke-puff 3s 1s ease-out forwards;
-        }
-
-        /* --- ANIMACIONES --- */
+        /* ... animaciones launch, flame, smoke-puff ... */
         @keyframes launch {
             0% { transform: translateY(50px) rotate(0deg); opacity: 0.2; }
             50% { transform: translateY(0px) rotate(-2deg); opacity: 1; }
@@ -280,33 +231,30 @@
             0% { opacity: 0; transform: scale(0.5) translateX(-50%); }
             100% { opacity: 0.5; transform: scale(1.5) translateX(-50%); }
         }
-        
-        /* Contenedor Principal (Derecha) */
+
+        /* Contenedor Colección (Ajuste de posición para no solapar texto) */
         .main-collection-box {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             padding: 20px;
             text-align: left;
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 45%;
+            top: 20px; /* Distancia del borde superior */
+            right: 50px; /* Ajuste para mantener alineación */
+            width: 40%; /* Ligeramente más pequeño para el diseño */
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.8);
+            max-height: 300px; /* Limitar altura */
         }
         .main-collection-box h4 {
             color: var(--primary-color);
             margin-bottom: 10px;
         }
-        .main-collection-box p {
-            margin-bottom: 15px;
-            line-height: 1.4;
-        }
 
-        /* --- SECCIONES INFERIORES --- */
+        /* --- SECCIONES INFERIORES (Alineación y espaciado consistente) --- */
         .section-secondary {
             background-color: var(--white);
-            padding: 60px 0;
+            padding: var(--section-padding-y) 0;
             text-align: center;
             border-radius: 30px;
             margin: 40px auto;
@@ -329,134 +277,36 @@
             padding: 0 40px;
         }
 
-        .servicio-card {
-            background: var(--background-light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: none;
-            text-align: center;
-            border-left: 3px solid var(--primary-color);
-        }
-        
-        .servicio-card h4 {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        
-        .servicio-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .testimonios {
-            padding: 60px 0;
-        }
-        
+        /* Testimonios y Contacto: Alineación central mejorada */
         .testimonio-card {
             background: var(--background-light);
             padding: 30px;
             border-radius: 8px;
             max-width: 600px;
-            margin: 20px auto;
+            margin: 20px auto; /* Centrado */
             box-shadow: none;
             border: 1px solid #ddd;
         }
         
-        .testimonio-card p {
-            font-style: italic;
-            font-size: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .testimonio-card span {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            display: block;
-            margin-top: 10px;
-        }
-        
-        .contacto {
-            padding-bottom: 80px;
-        }
-
         .contact-content {
             background: var(--background-light);
             padding: 50px;
             border-radius: 15px;
             max-width: 500px;
-            margin: 30px auto;
+            margin: 30px auto; /* Centrado */
             box-shadow: var(--shadow-subtle);
-        }
-
-        .contact-content p {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-        }
-
-        .footer {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 25px 0;
-            font-size: 0.85rem;
-            position: static; 
-            width: 100%;
-            margin-top: 40px;
         }
 
         /* --- RESPONSIVE / MENÚ HAMBURGUESA --- */
         @media (max-width: 900px) {
             
-            /* Ocultar el menú de escritorio */
-            .nav-menu {
-                display: none;
-            }
+            .menu-toggle { display: block; }
+            .nav-menu { display: none; }
             
-            /* Mostrar el botón hamburguesa */
-            .menu-toggle {
-                display: block;
-            }
-
-            /* Estilo del menú desplegable */
-            .nav-menu.open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: var(--secondary-color); 
-                padding-top: 80px;
-                padding-bottom: 20px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                z-index: 15;
-            }
-
-            .nav-menu.open li {
-                text-align: center;
-                margin: 10px 0;
-            }
-            
-            .nav-menu.open a {
-                color: var(--white);
-                font-size: 1.2rem;
-                display: block;
-                padding: 10px 0;
-            }
-            
-            .header .container {
-                padding-bottom: 10px;
-                position: relative;
-            }
-            
-            /* Adaptación de la Hero Section en móvil/tablet */
             .hero-content-wrapper {
                 flex-direction: column;
                 padding: 50px 20px 20px 20px;
+                min-height: auto; /* Desactivar altura mínima en móvil */
             }
             .hero-left {
                 width: 100%;
@@ -478,44 +328,17 @@
                 text-align: center;
             }
             
-            .hero-subtitle {
-                text-align: center;
-            }
-
             .main-collection-box {
                 position: static;
                 width: 90%;
                 margin: 20px auto 0;
             }
             
+            /* Ajustes finos de animación en móvil */
             .rocket-wrapper {
-                transform: translateY(20px);
                 right: unset;
                 left: 50%;
                 transform: translateX(-50%);
-                animation: launch-mobile 4s ease-out forwards;
-            }
-
-            @keyframes launch-mobile {
-                0% { transform: translateY(20px) translateX(-50%); opacity: 0.2; }
-                50% { transform: translateY(-20px) translateX(-50%); opacity: 1; }
-                100% { transform: translateY(-80px) translateX(-50%); opacity: 1; }
-            }
-            
-            .smoke {
-                bottom: -30px;
-            }
-            
-            .servicios-grid {
-                padding: 0 20px;
-            }
-            .section-secondary h3 {
-                 font-size: 1.5rem;
-                 letter-spacing: 3px;
-            }
-            
-            .contact-content {
-                padding: 30px;
             }
         }
     </style>
@@ -565,7 +388,7 @@
                     <div class="main-collection-box">
                         <h4>Misión de Conversión</h4>
                         <p>Nuestro enfoque es la velocidad y la eficiencia. Diseñamos la arquitectura de tu landing para que convierta visitantes en leads o ventas, minimizando la fricción y maximizando el retorno de tu inversión.</p>
-                        <a href="#servicios" class="btn" style="background: var(--white); color: var(--secondary-color); border: none; padding: 8px 15px; font-size: 0.8rem;">Ver Servicios</a>
+                        <a href="#servicios" class="btn" style="background: var(--white); color: var(--secondary-color); border: none; padding: 8px 15px; font-size: 0.8rem; margin-top: 0;">Ver Servicios</a>
                     </div>
                 </div>
             </div>
@@ -638,20 +461,17 @@
             const navMenu = document.getElementById('navMenu');
             const navLinks = navMenu.querySelectorAll('a');
 
-            // Función para alternar el menú
             function toggleMenu() {
                 navMenu.classList.toggle('open');
-                // Cambiar el ícono de hamburguesa a una X o similar
                 menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
             }
 
             menuToggle.addEventListener('click', toggleMenu);
 
-            // Cerrar el menú al hacer clic en un enlace (para la navegación de anclas)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('open')) {
-                        toggleMenu(); // Cerrar el menú después de hacer clic
+                        toggleMenu(); 
                     }
                 });
             });
