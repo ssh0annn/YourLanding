@@ -8,16 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* Variables - ADAPTADAS AL ESTILO MINIMALISTA */
+        /* Variables */
         :root {
             --primary-color: #FF6B6B; /* Coral Vibrante (Acento/Fuego) */
             --secondary-color: #1D2B53; /* Azul Profundo (Espacio/Texto Principal) */
-            --background-page: #EAE6E1; /* Gris de la imagen de referencia */
+            --background-page: #EAE6E1;
+            --hero-bg-dark: #1F2E49; /* Fondo de la Hero Section */
             --background-light: #F4F4F9; 
             --white: #ffffff;
             --text-dark: #333333;
             --text-light: #777777;
             --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --section-padding-y: 60px;
         }
 
         /* Base y Reset */
@@ -32,14 +34,14 @@
             color: var(--text-dark);
             line-height: 1.6;
             background-color: var(--background-page);
-            padding-top: 40px;
+            padding-top: 0; /* AJUSTE: Quitamos el padding superior */
         }
 
         .container {
             width: 90%;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px 0;
+            padding: 0;
         }
 
         h1, h2, h3 {
@@ -47,7 +49,7 @@
             line-height: 1.1;
             font-weight: 700;
         }
-
+        
         p {
             margin-bottom: 1rem;
             font-weight: 400;
@@ -68,7 +70,7 @@
             text-transform: uppercase;
             font-size: 0.9rem;
         }
-
+        
         .btn-primary {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -80,31 +82,17 @@
             transform: translateY(-1px);
         }
 
-        .btn-tag {
-            background: none;
-            color: var(--text-dark);
-            border: 1px solid var(--text-dark);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 400;
-            margin: 0 5px;
-            text-transform: none;
-        }
-        .btn-tag:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            border-color: var(--secondary-color);
-        }
-
-        /* --- HEADER Y NAVEGACIÓN (NUEVA ESTRUCTURA) --- */
+        /* --- HEADER Y NAVEGACIÓN --- */
         
+        .header {
+            background-color: var(--background-page); /* Fondo del header para contrastar con Hero */
+            padding-top: 40px; /* Separación del top de la ventana, si lo queremos ver */
+        }
         .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px 0 30px 0;
-            max-width: 1100px;
         }
 
         .logo {
@@ -113,19 +101,16 @@
             color: var(--secondary-color);
             font-weight: 700;
             letter-spacing: 2px;
-            text-align: left;
-            z-index: 20; /* Asegura que esté sobre el menú móvil */
+            z-index: 20;
         }
         .logo span {
             font-size: 0.8em;
         }
-        
-        /* Ocultar elementos de la referencia (como los links de moda) */
-        .header-links-simulated {
-            display: none; 
-        }
 
-        /* Menú de Navegación (Escritorio) */
+        nav {
+            margin-left: auto; /* AJUSTE: Empuja la navegación de escritorio a la derecha */
+        }
+        
         .nav-menu {
             list-style: none;
             display: flex;
@@ -145,7 +130,6 @@
             color: var(--primary-color);
         }
         
-        /* Icono Hamburguesa (Oculto en Escritorio) */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -153,83 +137,191 @@
             color: var(--secondary-color);
             font-size: 24px;
         }
+        
+        /* Ocultar los enlaces extra del header que no están en la nav principal */
+        .header-links-simulated {
+            display: none;
+        }
 
-        /* --- SECCIÓN HERO --- (Estilos del diseño anterior) */
+        /* --- SECCIÓN HERO (NUEVO ESTILO DE COHETE) --- */
         .hero {
+            background-color: var(--hero-bg-dark);
             padding: 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 0; /* Todo el relleno se manejará dentro del contenedor */
+        }
+        
+        .hero-content-wrapper {
+            /* Mismo contenedor ancho para centrar el contenido */
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 0 50px 0; /* Relleno solo arriba y abajo */
+            position: relative;
+            z-index: 1;
         }
 
         .hero-title {
-            font-size: 3.5rem; 
+            font-size: 3.2rem; 
             font-family: 'Roboto Mono', monospace;
             text-transform: uppercase;
-            letter-spacing: 10px;
-            margin: 50px auto 30px auto;
-            max-width: 900px;
-            line-height: 1.2;
-            color: var(--secondary-color);
+            letter-spacing: 5px;
+            margin: 0 auto 20px auto;
+            max-width: 700px;
+            line-height: 1.1;
+            color: var(--white);
         }
         
         .hero-title strong {
              color: var(--primary-color);
         }
 
-        .main-collection-box {
-            background-color: var(--white);
-            border-radius: 30px;
-            box-shadow: var(--shadow-subtle);
-            padding: 40px;
-            margin-top: 30px;
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+        
+        /* Estilo del Botón en Hero */
+        .hero .btn-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        .hero .btn-hero:hover {
+            background-color: #e85a5a;
+            border-color: #e85a5a;
+        }
+
+        /* --- Estructura y Estilos del Cohete (Simulación del SVG) --- */
+        
+        .rocket-container {
+            /* Contenedor que centrará el cohete y el humo */
             position: relative;
-            overflow: hidden;
-            max-width: 100%;
-            aspect-ratio: 16 / 9;
-        }
-
-        .image-placeholder {
-            background-color: var(--secondary-color);
-            background-image: linear-gradient(135deg, #4b5883 0%, var(--secondary-color) 40%, var(--primary-color) 100%);
             width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+            height: 400px; /* Altura del área del cohete y el humo */
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Cohete arriba, humo abajo */
         }
 
-        .text-overlay {
+        /* Cohete (Usaremos un div con CSS para simular la forma) */
+        .rocket-shape {
             position: absolute;
-            top: 10%;
-            left: 5%;
-            width: 40%;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 8px;
-            text-align: left;
+            bottom: 0; /* Anclado al centro inferior del contenedor */
+            width: 150px; /* Ancho total del cohete (con aletas) */
+            height: 350px; /* Altura del cohete */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             z-index: 10;
         }
-        
-        .text-overlay p {
-            color: var(--white);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+
+        /* Parte Superior (Cono) */
+        .rocket-cone {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid var(--primary-color);
+            margin-bottom: -1px;
         }
 
-        .text-overlay a {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            border-bottom: 1px solid var(--primary-color);
-            padding-bottom: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
+        /* Cuerpo */
+        .rocket-body {
+            width: 80px;
+            height: 200px;
+            background-color: var(--white);
+            border-radius: 5px;
+            position: relative;
         }
         
-        /* Estilos de las secciones inferiores */
+        /* Ventana (Mirilla) */
+        .rocket-window {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Aletas (Wings) */
+        .rocket-fin-left, .rocket-fin-right {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 100px solid transparent;
+            border-bottom: 50px solid transparent;
+            bottom: 0;
+        }
+        .rocket-fin-left {
+            border-right: 70px solid var(--primary-color);
+            left: -70px;
+        }
+        .rocket-fin-right {
+            border-left: 70px solid var(--primary-color);
+            right: -70px;
+        }
+
+        /* --- Fuego y Humo Estático (Simulación de propulsión) --- */
+        
+        .rocket-flame-smoke {
+            position: absolute;
+            bottom: -50px; /* Posicionamiento debajo del cohete */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 150px;
+            z-index: 5;
+        }
+
+        /* Fuego (Animación continua) */
+        .flame {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50% 50% 10% 10%;
+            box-shadow: 0 0 15px var(--primary-color);
+            transform: scaleY(0.8);
+            animation: pulse-flame 0.4s infinite alternate;
+        }
+        
+        /* Humo (Estela estática) */
+        .smoke-puff-base {
+            width: 100%;
+            height: 200px;
+            background: var(--white);
+            border-radius: 50%;
+            opacity: 0.1;
+            box-shadow: 0 0 50px 30px var(--white);
+            animation: pulse-smoke 2s infinite alternate;
+            margin-top: -30px;
+        }
+
+        /* Animaciones para la propulsión */
+        @keyframes pulse-flame {
+            0% { transform: scale(1, 0.8); opacity: 1; }
+            100% { transform: scale(1.1, 1.2); opacity: 0.9; }
+        }
+        
+        @keyframes pulse-smoke {
+            0% { transform: scale(0.95); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.2; }
+        }
+
+        /* --- SECCIONES INFERIORES --- */
         .section-secondary {
             background-color: var(--white);
-            padding: 60px 0;
+            padding: var(--section-padding-y) 0;
             text-align: center;
             border-radius: 30px;
             margin: 40px auto;
@@ -261,146 +353,98 @@
             border-left: 3px solid var(--primary-color);
         }
         
-        .servicio-card h4 {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        
-        .servicio-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        
-        .testimonios {
-            padding: 60px 0;
-        }
-        
-        .testimonio-card {
-            background: var(--background-light);
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 600px;
-            margin: 20px auto;
-            box-shadow: none;
-            border: 1px solid #ddd;
-        }
-        
-        .testimonio-card p {
-            font-style: italic;
-            font-size: 1rem;
-            color: var(--secondary-color);
-        }
-
-        .testimonio-card span {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 0.9rem;
-            display: block;
-            margin-top: 10px;
-        }
-        
-        .contacto {
-            padding-bottom: 80px;
-        }
-
-        .contact-content {
-            background: var(--background-light);
-            padding: 50px;
-            border-radius: 15px;
-            max-width: 500px;
-            margin: 30px auto;
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .contact-content p {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-        }
-
-        .footer {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 25px 0;
-            font-size: 0.85rem;
-            position: static; 
-            width: 100%;
-            margin-top: 40px;
-        }
-
-        /* --- RESPONSIVE / MENÚ HAMBURGUESA --- */
+        /* --- RESPONSIVE / MENÚ HAMBURGUESA (SLIDE DESDE LA DERECHA) --- */
         @media (max-width: 900px) {
-            /* Ocultar el menú de escritorio */
-            .nav-menu {
-                display: none;
-            }
             
-            /* Mostrar el botón hamburguesa */
-            .menu-toggle {
-                display: block;
+            .menu-toggle { display: block; }
+            
+            .nav-menu { 
+                display: none; 
+                position: fixed; 
+                top: 0;
+                right: 0; 
+                width: 70%; 
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--secondary-color); 
+                padding-top: 80px;
+                padding-bottom: 20px;
+                box-shadow: -4px 0 8px rgba(0,0,0,0.4);
+                z-index: 15;
+                
+                /* Estado Inicial Oculto */
+                transform: translateX(100%);
+                transition: transform 0.4s ease-out;
             }
 
-            /* Estilo del menú desplegable (por defecto oculto) */
             .nav-menu.open {
                 display: flex;
                 flex-direction: column;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background-color: var(--secondary-color); /* Fondo oscuro para contraste */
-                padding-top: 80px;
-                padding-bottom: 20px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                z-index: 15;
-            }
-
-            .nav-menu.open li {
-                text-align: center;
-                margin: 10px 0;
+                transform: translateX(0);
             }
             
-            .nav-menu.open a {
-                color: var(--white);
-                font-size: 1.2rem;
-                display: block;
-                padding: 10px 0;
-            }
+            .nav-menu.open li { margin: 10px 0; }
+            .nav-menu.open a { color: var(--white); font-size: 1.2rem; display: block; padding: 10px 0; }
             
-            /* Ajuste para el logo y el toggle en la cabecera móvil */
-            .header .container {
-                padding-bottom: 10px;
-                position: relative;
-            }
+            .header .container { padding-bottom: 10px; position: relative; }
             
-            /* El resto de estilos responsive del diseño anterior */
+            /* Adaptación de Hero Section en móvil/tablet */
             .hero-title {
-                font-size: 2.5rem;
-                letter-spacing: 5px;
-                margin-top: 20px;
-            }
-            .main-collection-box {
-                aspect-ratio: unset;
-                height: 50vh;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .hero-title {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
                 letter-spacing: 3px;
             }
-            .text-overlay {
-                width: 80%;
-                left: 10%;
-                top: 50%;
-                transform: translateY(-50%);
+            
+            .rocket-container {
+                height: 300px;
+                margin-top: 30px;
             }
-            .text-overlay p {
-                font-size: 0.8rem;
+            
+            .rocket-shape {
+                width: 100px;
+                height: 250px;
+            }
+            
+            .rocket-cone {
+                border-left: 35px solid transparent;
+                border-right: 35px solid transparent;
+                border-bottom: 70px solid var(--primary-color);
+            }
+            
+            .rocket-body {
+                width: 50px;
+                height: 130px;
+            }
+            
+            .rocket-window {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .rocket-fin-left, .rocket-fin-right {
+                border-top: 70px solid transparent;
+                border-bottom: 35px solid transparent;
+            }
+            .rocket-fin-left {
+                border-right: 50px solid var(--primary-color);
+                left: -50px;
+            }
+            .rocket-fin-right {
+                border-left: 50px solid var(--primary-color);
+                right: -50px;
+            }
+            
+            .rocket-flame-smoke {
+                width: 100px;
+                bottom: -30px;
+            }
+            
+            .flame {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .smoke-puff-base {
+                height: 150px;
             }
         }
     </style>
@@ -421,38 +465,42 @@
                 </ul>
             </nav>
             
-            <div class="header-links-simulated">
-                <span>🔍</span>
-                <span>👤</span>
-                <span>🛍️</span>
-            </div>
         </div>
     </header>
 
     <main>
         <section id="hero" class="hero">
-            <div class="container">
+            <div class="hero-content-wrapper">
+                
                 <h2 class="hero-title">
                     <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
                     LANDING PAGE CON **IMPULSO**
                 </h2>
                 
-                <div style="display: flex; justify-content: center; margin-bottom: 40px;">
-                    <a href="#servicios" class="btn btn-tag">Páginas Ligeras</a>
-                    <a href="#servicios" class="btn btn-tag">Máxima Conversión</a>
-                </div>
+                <p class="hero-subtitle">
+                    Diseño audaz y arquitectura sólida. ¡Velocidad y fiabilidad en cada lanzamiento!
+                </p>
 
-                <div class="main-collection-box">
-                    <div class="image-placeholder"></div>
+                <a href="#contacto" class="btn btn-hero">¡Iniciar Despegue Ahora!</a>
+
+                <div class="rocket-container">
                     
-                    <div class="text-overlay">
-                        <p>
-                            En YourLanding, diseñamos con la intención de **lanzar** productos digitales con líneas audaces y arquitectura sólida. Cada proyecto cuenta una historia de **velocidad y fiabilidad**, diseñado para quienes buscan moverse sin esfuerzo entre la tradición del buen diseño y la innovación en resultados.
-                        </p>
-                        <a href="#servicios">Explora la Arquitectura de Conversión ↗</a>
+                    <div class="rocket-flame-smoke">
+                        <div class="smoke-puff-base"></div>
+                        <div class="flame"></div>
                     </div>
+                    
+                    <div class="rocket-shape">
+                        <div class="rocket-cone"></div>
+                        <div class="rocket-body">
+                            <div class="rocket-window"></div>
+                        </div>
+                        <div class="rocket-fin-left"></div>
+                        <div class="rocket-fin-right"></div>
+                    </div>
+                    
                 </div>
-            </div>
+                </div>
         </section>
 
         <section id="servicios" class="section-secondary">
@@ -522,20 +570,17 @@
             const navMenu = document.getElementById('navMenu');
             const navLinks = navMenu.querySelectorAll('a');
 
-            // Función para alternar el menú
             function toggleMenu() {
                 navMenu.classList.toggle('open');
-                // Cambiar el ícono de hamburguesa a una X o similar
                 menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
             }
 
             menuToggle.addEventListener('click', toggleMenu);
 
-            // Cerrar el menú al hacer clic en un enlace (para la navegación de anclas)
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('open')) {
-                        toggleMenu(); // Cerrar el menú después de hacer clic
+                        toggleMenu(); 
                     }
                 });
             });
