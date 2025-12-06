@@ -206,7 +206,6 @@
             justify-content: center;
             align-items: flex-start; 
         }
-
         .rocket-shape {
             position: absolute;
             bottom: 0; 
@@ -299,15 +298,15 @@
             0% { transform: scale(0.95); opacity: 0.1; }
             100% { transform: scale(1); opacity: 0.2; }
         }
-
-        /* --- SECCIÓN SERVICIOS (BENTO GRID - AJUSTES CLAVE) --- */
+        
+        /* --- ESTILOS GENERALES Y TEMÁTICOS DE SECCIONES --- */
         .section-secondary {
             background-color: var(--white);
             padding: var(--section-padding-y) 0;
             text-align: center;
             border-radius: 30px;
             margin: 40px auto;
-            max-width: 1000px;
+            max-width: 1100px;
             box-shadow: var(--shadow-subtle);
         }
         
@@ -318,77 +317,121 @@
             letter-spacing: 5px;
             text-transform: uppercase;
         }
-        
-        /* Estilos del contenedor Bento */
-        .bento-grid {
-            display: grid;
-            /* 3 columnas con un ancho mínimo de 250px */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 40px;
-            align-items: stretch;
-        }
 
-        /* Estilo de la celda individual (reemplaza .servicio-card) */
-        .bento-card {
-            background: var(--background-light);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid rgba(0, 0, 0, 0.05); /* Borde muy sutil como en la referencia */
-            text-align: left;
-            box-shadow: var(--shadow-bento);
+        /* --- NUEVA SECCIÓN DE SERVICIOS: ETAPAS DE LANZAMIENTO (TABS) --- */
+        
+        .launch-stages {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* Contenedor de las pestañas (círculos/pasos) */
+        .stage-nav {
+            display: flex;
             justify-content: space-between;
-            min-height: 150px; /* Altura mínima para que se vea como una caja */
+            width: 100%;
+            padding: 0 20px;
+            position: relative;
+            margin-bottom: 30px;
         }
         
-        /* Modificadores de tamaño de celda para el efecto Bento */
-        .bento-span-2 {
-            grid-column: span 2;
-        }
-        .bento-span-3 {
-            grid-column: span 3;
-        }
-        .bento-height-2 {
-            min-height: 350px; /* Para simular una tarjeta que ocupa 2 filas visualmente */
+        /* Línea de tiempo / Conector */
+        .stage-nav::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background-color: var(--text-light);
+            z-index: 1;
         }
 
-        /* Estilos de Contenido de la Card */
-        .bento-card h4 {
-            color: var(--secondary-color);
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            text-transform: uppercase;
+        .stage-step {
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            text-align: center;
+            flex: 1;
+        }
+
+        .stage-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--background-page);
+            border: 3px solid var(--text-light);
+            color: var(--text-dark);
             font-weight: 700;
-        }
-        
-        .bento-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 10px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 5px var(--white); /* Para que resalte sobre la línea */
         }
 
-        .bento-card .icon-placeholder {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .stage-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        .bento-card .code-block {
-            background-color: #333;
+
+        /* Estado activo de la pestaña */
+        .stage-step.active .stage-icon {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
             color: var(--white);
-            padding: 10px;
-            border-radius: 4px;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.8rem;
-            white-space: pre-wrap;
-            margin-top: 15px;
-            max-height: 150px;
-            overflow: hidden;
+            box-shadow: 0 0 0 5px var(--white), 0 0 10px var(--primary-color);
+            transform: scale(1.1);
         }
 
-        /* Estilos de las secciones inferiores */
+        /* Contenido de la pestaña */
+        .stage-content {
+            background-color: var(--hero-bg-dark); /* Color oscuro del Hero */
+            color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            margin-top: 20px;
+            min-height: 200px;
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .stage-content h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .stage-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .content-item {
+            display: none;
+        }
+        
+        .content-item.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* --- OTROS ESTILOS --- */
         
         .testimonios {
             padding: var(--section-padding-y) 0;
@@ -418,6 +461,7 @@
             
             .menu-toggle { display: block; }
             .nav-menu { 
+                /* Estilos ya definidos para el menú móvil */
                 display: none; 
                 position: fixed; 
                 top: 0;
@@ -445,12 +489,37 @@
                 position: relative; 
             }
             
-            /* Reset de las columnas Bento en móvil */
-            .bento-span-2, .bento-span-3 {
-                grid-column: span 1;
+            /* Responsive para las etapas (se vuelven verticales) */
+            .stage-nav {
+                flex-direction: column;
+                padding: 0;
             }
-            .bento-height-2 {
-                min-height: unset;
+            
+            .stage-nav::before {
+                top: 50px;
+                bottom: 50px;
+                left: 25px;
+                right: unset;
+                width: 2px;
+                height: calc(100% - 100px);
+            }
+            
+            .stage-step {
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                text-align: left;
+                padding: 15px 0;
+                margin-left: -15px; /* Empujar un poco el texto hacia la izquierda */
+            }
+            
+            .stage-icon {
+                margin: 0 20px 0 0;
+                flex-shrink: 0;
+            }
+            
+            .stage-title {
+                text-align: left;
             }
         }
     </style>
@@ -511,49 +580,70 @@
 
         <section id="servicios" class="section-secondary">
             <div class="container">
-                <h3>Servicios de **Alto Octanaje**</h3>
+                <h3>**Etapas** de Lanzamiento **🚀**</h3>
                 
-                <div class="bento-grid">
+                <div class="launch-stages">
                     
-                    <div class="bento-card bento-span-2 bento-height-2" style="text-align: center; justify-content: center; background-color: #1a2542; color: var(--white); border-color: rgba(255, 255, 255, 0.1);">
-                        <div class="icon-placeholder" style="font-size: 4rem; color: var(--primary-color);">✨</div>
-                        <h4 style="color: var(--primary-color); font-size: 1.5rem; margin-top: 10px;">DISEÑO Y ARQUITECTURA **A LA MEDIDA**</h4>
-                        <p style="color: rgba(255, 255, 255, 0.8); max-width: 80%; margin: 10px auto;">
-                            Planteamos una arquitectura de landing page única, no una plantilla. Tu cohete será el único en el cielo. Maximizando el flujo de conversión del usuario.
-                        </p>
-                    </div>
-
-                    <div class="bento-card bento-height-2" style="justify-content: flex-start;">
-                        <div class="icon-placeholder">⚙️</div>
-                        <h4>INTEGRACIÓN RÁPIDA</h4>
-                        <p>Fácil conexión con tus herramientas de Marketing.</p>
-                        <div class="code-block">
-                            # Conexión de Leads<br>
-                            import YourLanding.Client<br>
-                            client = YourLanding.Client.connect()<br>
-                            client.send_conversion('FormID', UserData)
+                    <div class="stage-nav">
+                        
+                        <div class="stage-step active" data-target="stage1">
+                            <div class="stage-icon">1</div>
+                            <div class="stage-title">Briefing Orbital</div>
                         </div>
+
+                        <div class="stage-step" data-target="stage2">
+                            <div class="stage-icon">2</div>
+                            <div class="stage-title">Diseño de Propulsión</div>
+                        </div>
+                        
+                        <div class="stage-step" data-target="stage3">
+                            <div class="stage-icon">3</div>
+                            <div class="stage-title">Integración de Carga</div>
+                        </div>
+                        
+                        <div class="stage-step" data-target="stage4">
+                            <div class="stage-icon">4</div>
+                            <div class="stage-title">Activación y Vuelo</div>
+                        </div>
+
                     </div>
                     
-                    <div class="bento-card">
-                        <div class="icon-placeholder">📈</div>
-                        <h4>OPTIMIZACIÓN SEO ESENCIAL</h4>
-                        <p>Configuración básica para que aterrices justo donde están tus clientes.</p>
-                    </div>
+                    <div class="stage-content">
+                        
+                        <div class="content-item active" id="stage1">
+                            <h4>BRIEFING ORBITAL (Diseño a la Medida)</h4>
+                            <p>
+                                Es el inicio de la misión. Analizamos tus objetivos, público meta y el mensaje clave que debe transmitir tu página. Creamos la **arquitectura de conversión** única y el mapa de viaje del usuario para asegurar un despegue exitoso.
+                            </p>
+                        </div>
+                        
+                        <div class="content-item" id="stage2">
+                            <h4>DISEÑO DE PROPULSIÓN (Responsive & Estilo)</h4>
+                            <p>
+                                Aquí construimos el fuselaje visual. Creamos un diseño audaz que utiliza la identidad de tu marca. El código es **100% responsive** y ligero para garantizar la máxima velocidad en cualquier dispositivo, de escritorio a móvil.
+                            </p>
+                        </div>
 
-                    <div class="bento-card">
-                        <div class="icon-placeholder">📱</div>
-                        <h4>RESPONSIVE PERFECTO</h4>
-                        <p>Diseño fluido adaptado a cualquier órbita (móvil, tablet, desktop).</p>
+                        <div class="content-item" id="stage3">
+                            <h4>INTEGRACIÓN DE CARGA (Leads & SEO)</h4>
+                            <p>
+                                Preparamos todos los sistemas críticos:
+                                **1. Captura de Leads:** Conectamos tus formularios a tu CRM.
+                                **2. SEO Esencial:** Optimizamos los metadatos y la estructura para que los motores de búsqueda rastreen tu página al aterrizar.
+                            </p>
+                        </div>
+                        
+                        <div class="content-item" id="stage4">
+                            <h4>ACTIVACIÓN Y VUELO (Lanzamiento Final)</h4>
+                            <p>
+                                La etapa final. Tu landing page es desplegada en un servidor rápido y fiable. Realizamos pruebas finales para confirmar la funcionalidad y velocidad antes de declarar la misión como **Completada** y lista para generar conversiones.
+                            </p>
+                        </div>
+
                     </div>
                     
-                    <div class="bento-card bento-span-2">
-                        <div class="icon-placeholder">📧</div>
-                        <h4>ESTRATEGIAS DE CAPTURA DE LEADS</h4>
-                        <p>Implementación de formularios de alta conversión y pop-ups inteligentes, diseñados para capturar datos y poner tus conversiones en órbita rápidamente.</p>
-                    </div>
-
                 </div>
+                
             </div>
         </section>
 
@@ -596,6 +686,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Script del Menú Hamburguesa ---
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
             const navLinks = navMenu.querySelectorAll('a');
@@ -612,6 +703,25 @@
                     if (navMenu.classList.contains('open')) {
                         toggleMenu(); 
                     }
+                });
+            });
+
+            // --- Script de las Etapas de Lanzamiento (Tabs) ---
+            const stageSteps = document.querySelectorAll('.stage-step');
+            const contentItems = document.querySelectorAll('.content-item');
+
+            stageSteps.forEach(step => {
+                step.addEventListener('click', function() {
+                    // 1. Desactivar todos los pasos y contenidos
+                    stageSteps.forEach(s => s.classList.remove('active'));
+                    contentItems.forEach(c => c.classList.remove('active'));
+                    
+                    // 2. Activar el paso actual
+                    this.classList.add('active');
+                    
+                    // 3. Activar el contenido asociado
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
                 });
             });
         });
