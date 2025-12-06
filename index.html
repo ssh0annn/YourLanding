@@ -6,6 +6,7 @@
     <title>🚀 YourLanding - Landing Pages Profesionales</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* Variables */
@@ -71,16 +72,16 @@
             font-size: 0.9rem;
         }
         
-        /* Botón general - Adaptado para Contacto Final */
+        /* Botón general - Ahora usa primary-color */
         .btn-primary {
-            background-color: var(--primary-color); /* Usamos el color de acento */
+            background-color: var(--primary-color);
             color: var(--white);
             border: 1px solid var(--primary-color);
             font-weight: 600;
         }
 
         .btn-primary:hover {
-            background-color: #e85a5a; /* Tono más oscuro de coral */
+            background-color: #e85a5a;
             border-color: #e85a5a;
             transform: translateY(-1px);
         }
@@ -171,8 +172,12 @@
             color: var(--white);
         }
         
-        .hero-title strong {
+        .hero-title span { /* Estilo para las palabras antes del break */
              color: var(--primary-color);
+             font-weight: 300;
+        }
+        .hero-title strong {
+            font-weight: 700; /* Asegurar que la palabra clave siga fuerte */
         }
 
         .hero-subtitle {
@@ -193,8 +198,8 @@
             border-color: #e85a5a;
         }
 
-        /* --- Estructura y Estilos del Cohete (Se mantiene) --- */
-        
+        /* --- Estructura y Estilos del Cohete (Animación) --- */
+        /* Se mantiene el CSS del cohete y animaciones */
         .rocket-container {
             position: relative;
             width: 100%;
@@ -359,13 +364,8 @@
             margin: 0 auto 10px auto;
             transition: all 0.3s ease;
             box-shadow: 0 0 0 5px var(--white);
-        }
-        .stage-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            /* Nueva animación de pulso sutil */
+            animation: none;
         }
         .stage-step.active .stage-icon {
             background-color: var(--primary-color);
@@ -374,21 +374,25 @@
             box-shadow: 0 0 0 5px var(--white), 0 0 10px var(--primary-color);
             transform: scale(1.1);
         }
+        
+        /* Contenido de la Card (Modernizado) */
         .stage-content {
-            background-color: var(--hero-bg-dark); 
+            background: linear-gradient(45deg, var(--hero-bg-dark), var(--secondary-color)); /* Gradiente sutil */
             color: var(--white);
-            padding: 30px;
+            padding: 40px; /* Más padding */
             border-radius: 15px;
             text-align: left;
             margin-top: 20px;
-            min-height: 200px;
-            box-shadow: var(--shadow-subtle);
+            min-height: 250px; /* Un poco más de altura */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .stage-content h4 {
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Título más grande */
             margin-bottom: 10px;
             text-transform: uppercase;
+            font-weight: 800;
         }
         .stage-content p {
             font-size: 1rem;
@@ -407,7 +411,6 @@
 
 
         /* --- SECCIÓN CONTACTO (EL CONTEO FINAL) --- */
-        
         .contacto {
             background-color: var(--secondary-color); 
             padding: 80px 0; 
@@ -442,11 +445,11 @@
             font-size: 1.1rem;
         }
 
-        /* --- ESTILOS DE FOOTER (ACTUALIZADO) --- */
+        /* --- FOOTER (ACTUALIZADO) --- */
         .footer {
-            background-color: var(--hero-bg-dark); /* Color oscuro para el contraste */
+            background-color: var(--hero-bg-dark); 
             color: rgba(255, 255, 255, 0.6);
-            padding: 40px 0; /* Más espacio */
+            padding: 40px 0; 
             text-align: center;
             font-size: 0.9rem;
         }
@@ -461,15 +464,14 @@
         .social-links a {
             color: var(--white);
             text-decoration: none;
-            font-size: 1.5rem; /* Tamaño del icono */
-            transition: color 0.3s;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.2s;
             display: flex;
             align-items: center;
-            font-family: Arial, sans-serif; /* Para asegurar que el emoji se vea bien */
         }
         
         .social-links a:hover {
-            color: var(--primary-color); /* Resaltar al pasar el ratón */
+            color: var(--primary-color); /* Usar color primario para el hover */
             transform: scale(1.1);
         }
         
@@ -579,15 +581,15 @@
             <div class="hero-content-wrapper">
                 
                 <h2 class="hero-title">
-                    <span style="color: var(--primary-color); font-weight: 300;">Lanza Tu </span><br>
-                    LANDING PAGE CON **IMPULSO**
+                    <span>Lanza Tu </span><br>
+                    LANDING PAGE CON <strong>IMPULSO</strong>
                 </h2>
                 
                 <p class="hero-subtitle">
                     Diseño audaz y arquitectura sólida. ¡Velocidad y fiabilidad en cada lanzamiento!
                 </p>
-
-                <a href="#contacto" class="btn btn-hero">¡Iniciar Despegue Ahora!</a>
+                
+                <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" class="btn btn-hero">¡Iniciar Despegue Ahora!</a>
 
                 <div class="rocket-container">
                     
@@ -611,7 +613,7 @@
 
         <section id="servicios" class="section-secondary">
             <div class="container">
-                <h3>**Etapas** de Lanzamiento **🚀**</h3>
+                <h3>Etapas de Lanzamiento 🚀</h3>
                 
                 <div class="launch-stages">
                     
@@ -649,18 +651,18 @@
                         </div>
                         
                         <div class="content-item" id="stage2">
-                            <h4>DISEÑO DE PROPULSIÓN (Responsive & Estilo)</h4>
+                            <h4>DISEÑO DE PROPULSIÓN (Responsive y Estilo)</h4>
                             <p>
                                 Aquí construimos el fuselaje visual. Creamos un diseño audaz que utiliza la identidad de tu marca. El código es **100% responsive** y ligero para garantizar la máxima velocidad en cualquier dispositivo, de escritorio a móvil.
                             </p>
                         </div>
 
                         <div class="content-item" id="stage3">
-                            <h4>INTEGRACIÓN DE CARGA (Leads & SEO)</h4>
+                            <h4>INTEGRACIÓN DE CARGA (Leads y SEO)</h4>
                             <p>
                                 Preparamos todos los sistemas críticos:
-                                **1. Captura de Leads:** Conectamos tus formularios a tu CRM.
-                                **2. SEO Esencial:** Optimizamos los metadatos y la estructura para que los motores de búsqueda rastreen tu página al aterrizar.
+                                1. Captura de Leads: Conectamos tus formularios a tu CRM.
+                                2. SEO Esencial: Optimizamos los metadatos y la estructura para que los motores de búsqueda rastreen tu página al aterrizar.
                             </p>
                         </div>
                         
@@ -681,7 +683,7 @@
         <section id="contacto" class="contacto">
             <div class="container">
                 
-                <h3>**Conteo Final** Para el Lanzamiento</h3>
+                <h3>Conteo Final Para el Lanzamiento</h3>
                 
                 <div class="contact-content">
                     <p>
@@ -703,16 +705,16 @@
 
             <div class="social-links">
                 <a href="https://linkedin.com/in/tu-perfil" target="_blank" title="LinkedIn">
-                    in
+                    <i class="fab fa-linkedin"></i>
                 </a>
                 <a href="https://instagram.com/tu-perfil" target="_blank" title="Instagram">
-                    📷
+                    <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://github.com/tu-perfil" target="_blank" title="GitHub">
-                    🧑‍💻
+                    <i class="fab fa-github"></i>
                 </a>
                 <a href="mailto:jrdcdiaz2001@gmail.com" title="Email">
-                    📧
+                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
 
@@ -747,6 +749,15 @@
             // --- Script de las Etapas de Lanzamiento (Tabs) ---
             const stageSteps = document.querySelectorAll('.stage-step');
             const contentItems = document.querySelectorAll('.content-item');
+
+            // Asegurar que el primer paso esté activo al cargar
+            if (stageSteps.length > 0) {
+                stageSteps[0].classList.add('active');
+            }
+            if (contentItems.length > 0) {
+                contentItems[0].classList.add('active');
+            }
+
 
             stageSteps.forEach(step => {
                 step.addEventListener('click', function() {
