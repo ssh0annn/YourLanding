@@ -64,3 +64,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// AÑADIDO: Script para Forzar el Scroll al Inicio en Carga (soluciona el problema de links compartidos)
+    if (window.location.hash) {
+        // Usamos setTimeout con un retraso mínimo (1ms) para que el script se ejecute
+        // DESPUÉS de que el navegador complete su desplazamiento automático al hash.
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+            
+            // Opcional: Limpiar el hash de la URL (para que el usuario no vea el #contacto)
+            if (history.replaceState) {
+                history.replaceState(null, document.title, window.location.pathname + window.location.search);
+            }
+        }, 1); 
+    }
+    // FIN DEL SCRIPT DE CORRECCIÓN DE SCROLL
+    
+    // --- Script del Menú Hamburguesa (MODIFICADO) ---
+    const menuToggle = document.getElementById('menuToggle');
+
+    // ... (El resto del contenido de tu script sigue aquí) ...
