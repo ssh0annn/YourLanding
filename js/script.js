@@ -1,25 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Script del Menú Hamburguesa ---
+    // --- Script del Menú Hamburguesa (MODIFICADO) ---
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = navMenu.querySelectorAll('a');
 
     function toggleMenu() {
         navMenu.classList.toggle('open');
-        menuToggle.textContent = navMenu.classList.contains('open') ? '✕' : '☰';
     }
 
     menuToggle.addEventListener('click', toggleMenu);
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
+            // Cierra el menú automáticamente al hacer clic en un enlace
             if (navMenu.classList.contains('open')) {
                 toggleMenu(); 
             }
         });
     });
+    // --- Fin Script del Menú Hamburguesa ---
 
-    // --- Script de las Etapas de Lanzamiento (Tabs) ---
+
+    // --- Script de las Etapas de Lanzamiento (Tabs) (Se mantiene) ---
     const stageSteps = document.querySelectorAll('.stage-step');
     const contentItems = document.querySelectorAll('.content-item');
 
@@ -45,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // --- Script para FAQ (Acordeón) ---
+    // --- Script para FAQ (Acordeón) (Se mantiene) ---
     const faqQuestions = document.querySelectorAll('.faq-question');
 
     faqQuestions.forEach(question => {
