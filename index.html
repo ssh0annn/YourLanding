@@ -406,17 +406,17 @@
         }
 
 
-        /* --- NUEVOS ESTILOS SECCIÓN CONTACTO (EL CONTEO FINAL) --- */
+        /* --- SECCIÓN CONTACTO (EL CONTEO FINAL) --- */
         
         .contacto {
-            background-color: var(--secondary-color); /* Fondo Azul Profundo */
-            padding: 80px 0; /* Más padding para que destaque */
+            background-color: var(--secondary-color); 
+            padding: 80px 0; 
             text-align: center;
             color: var(--white);
         }
 
         .contacto h3 {
-            color: var(--primary-color); /* Título en Coral (Fuego) */
+            color: var(--primary-color); 
             font-size: 2.5rem;
             margin-bottom: 20px;
             letter-spacing: 6px;
@@ -424,7 +424,6 @@
         }
 
         .contact-content {
-            /* Eliminamos el fondo blanco interior para que Contacto sea un solo bloque de color */
             background: none; 
             padding: 0;
             max-width: 700px;
@@ -443,13 +442,44 @@
             font-size: 1.1rem;
         }
 
-        /* --- ESTILOS DE FOOTER --- */
+        /* --- ESTILOS DE FOOTER (ACTUALIZADO) --- */
         .footer {
-            background-color: var(--hero-bg-dark);
+            background-color: var(--hero-bg-dark); /* Color oscuro para el contraste */
             color: rgba(255, 255, 255, 0.6);
-            padding: 20px 0;
+            padding: 40px 0; /* Más espacio */
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem; /* Tamaño del icono */
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            font-family: Arial, sans-serif; /* Para asegurar que el emoji se vea bien */
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color); /* Resaltar al pasar el ratón */
+            transform: scale(1.1);
+        }
+        
+        .footer-logo {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
 
@@ -458,6 +488,7 @@
             
             .menu-toggle { display: block; }
             .nav-menu { 
+                /* Estilos ya definidos para el menú móvil */
                 display: none; 
                 position: fixed; 
                 top: 0;
@@ -657,7 +688,7 @@
                         ¡El tiempo corre! No pierdas más conversiones. Haz clic en el botón de abajo para comunicarte con la central de control.
                     </p>
                     
-                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%2C%20etc.)%3A%20%0D%0A" 
+                    <a href="mailto:jrdcdiaz2001@gmail.com?subject=Lanzamiento%20de%20Landing%20Page%20Cohete%20🚀%20(YourLanding)&body=Hola%2C%20estoy%20interesado%20en%20los%20servicios%20de%20YourLanding.%0D%0A%0D%0AMi%20Nombre%20Completo%3A%20%0D%0AEmpresa%20(si%20aplica)%3A%20%0D%0ATeléfono%20de%20Contacto%3A%20%0D%0A%0D%0ACuéntanos%20sobre%20tu%20proyecto%20(objetivos%2C%20público%20meta%2C%20plazo%20estimado%20etc.)%3A%20%0D%0A" 
                        class="btn btn-primary">
                         Iniciar Misión (Solicitar Presupuesto)
                     </a>
@@ -668,7 +699,26 @@
 
     <footer class="footer">
         <div class="container">
-            <p>🚀 YourLanding. All rights reserved. | Diseñado con velocidad y precisión.</p>
+            <div class="footer-logo">🚀 YOURLANDING</div>
+
+            <div class="social-links">
+                <a href="https://linkedin.com/in/tu-perfil" target="_blank" title="LinkedIn">
+                    in
+                </a>
+                <a href="https://instagram.com/tu-perfil" target="_blank" title="Instagram">
+                    📷
+                </a>
+                <a href="https://github.com/tu-perfil" target="_blank" title="GitHub">
+                    🧑‍💻
+                </a>
+                <a href="mailto:jrdcdiaz2001@gmail.com" title="Email">
+                    📧
+                </a>
+            </div>
+
+            <p>
+                &copy; 2025 YourLanding. All rights reserved. | Diseñado con velocidad y precisión.
+            </p>
         </div>
     </footer>
     
